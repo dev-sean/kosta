@@ -10,10 +10,11 @@ import java.util.Scanner;
 public class exam1 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        System.out.print("숫자1 :");
+        System.out.print("num1 :");
         String msg = sc.nextLine();
         int num1 = Integer.parseInt(msg);
-        System.out.print("숫자2 :");
+        //int num1 = Integer.parseInt(sc.nextLine());
+        System.out.print("num2 :");
         String msg1 = sc.nextLine();
         int num2 = Integer.parseInt(msg1);
         System.out.println("num1 > num2 :"+(num1>num2));
