@@ -1,0 +1,111 @@
+package exam;
+
+import java.util.Scanner;
+
+/**
+ * @author ¿À¼¼Çö Document : Exam1 Created on : 2014. 9. 4, ¿ÀÈÄ 1:48:15
+ */
+public class Exam1 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int win = 0; //»ç¿ëÀÚ°¡ ÀÌ±ä È½¼ö
+        int total = 0; //»ç¿ëÀÚ°¡ ÃÑ ÁøÇàÇÑ °ÔÀÓ ¼ö
+        String item; //»óÇ°
+        while (true) {
+            int ran = (int) (Math.random() * 2); //0°ú 1¸¸ Ãâ·Â 0=È¦¼ö, 1=Â¦¼ö
+            System.out.print("1 - È¦, 2 - Â¦, 3 - Á¾·á :");
+            int num = Integer.parseInt(sc.nextLine());
+
+            if (num == 1) {
+                if (ran == 0) {
+                    total++;
+                    win++;
+                    System.out.println("TOTAL : " + total);
+                    System.out.println("CPU : È¦");
+                    System.out.println("YOU : È¦");
+                    winning(win);
+                } else {
+                    total++;
+                    System.out.println("TOTAL : " + total);
+                    System.out.println("CPU : Â¦");
+                    System.out.println("YOU : È¦");
+                    loosing(win);
+                }
+            } else if (num == 2) {
+                if (ran == 1) {
+                    total++;
+                    System.out.println("TOTAL : " + total);
+                    System.out.println("CPU : Â¦");
+                    System.out.println("YOU : È¦");
+                    loosing(win);
+                } else {
+                    total++;
+                    win++;
+                    System.out.println("TOTAL : " + total);
+                    System.out.println("CPU : Â¦");
+                    System.out.println("YOU : Â¦");
+                    winning(win);
+                }
+            } else if (num == 3) {
+                break;
+            } else {
+                System.out.println("Àß¸øµÈ ¼ö!");
+            }
+        }
+        System.out.println("--------------------");
+        System.out.println("TOTAL : " + total);
+        System.out.println("WIN : " + win);
+        /*
+         double totaldouble = total; //½Â·üÀ» °è»êÇÏ±â À§ÇÑ ÀÓ½Ã º¯¼ö, ÀüÃ¼ °ÔÀÓ ¼ö
+         double windouble = win; // ½Â·üÀ» °è»êÇÏ±â À§ÇÑ ÀÓ½Ã º¯¼ö, ½Â·ü
+         double winratedouble = (windouble / totaldouble) * 100; //½Â·üÀ»°è»êÇÏ±â À§ÇÑ ÀÓ½Ã º¯¼ö, ½Â·ü
+         int winrate = (int) Math.round(winratedouble);//doubleÇü ½Â·üÀ» intÇüÀ¸·Î ¹Ù²Û´Ù.
+         */
+        int winrate = score(total, win);
+        System.out.println("½Â·ü : " + winrate + "%");
+        System.out.println("»óÇ° : " + gift(winrate, total));
+    }
+
+    public static void winning(int win) {
+        System.out.println("--------------------");
+        System.out.println("WIN : " + win);
+        System.out.println("[½Â¸®ÇÏ¼Ì½À´Ï´Ù.]");
+    }
+
+    public static void loosing(int win) {
+        System.out.println("--------------------");
+        System.out.println("WIN : " + win);
+        System.out.println("[´ç½ÅÀº Á³½À´Ï´Ù.]");
+    }
+
+    public static int score(int total, int win) {
+        int result = 0;
+        result = (int) (((double) win / total) * 100);
+
+        return result;
+    }
+
+    public static String gift(int score, int total) {
+        String msg = "";
+
+        if (total < 10) {
+            System.out.println("10°ÔÀÓÀ» ÁøÇàÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+        } else {
+            if (score == 100) {
+                msg = "»çÅÁ5°³";
+            } else if (score < 100 && score >= 90) {
+                msg = "»çÅÁ4°³";
+            } else if (score < 90 && score >= 80) {
+                msg = "»çÅÁ3°³";
+            } else if (score < 80 && score >= 70) {
+                msg = "»çÅÁ2°³";
+            } else if (score < 70 && score >= 60) {
+                msg = "»çÅÁ1°³";
+            } else {
+                msg = "¾øÀ½";
+            }
+        }
+        return msg;
+    }
+}
