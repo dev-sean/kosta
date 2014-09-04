@@ -5,7 +5,7 @@ package ex1;
  * Created on : 2014. 9. 3, 오전 10:15:10
  */
 public class Ex1_Oper {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         //비교연산자 - 변수나 상수값을 비교 할 때 쓰이는 연산자.
         //결과는 항상 boolean(true/false)
         int a = 10;
@@ -24,4 +24,4 @@ public class Ex1_Oper {
         // || : 선조건이 true이면 후조건을 실행하지 않으며
         // 선조건이 false일 때만 후조건을 실행한다.
     }
-}
+} 
