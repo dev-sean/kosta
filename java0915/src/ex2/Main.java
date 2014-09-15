@@ -7,7 +7,7 @@ package ex2;
 public class Main {
     public static void main(String[] args) {
         //추상 클래스는 new로 생성될 수 없다.
-         Super[] ar = new Super[2];
+         Super[] ar = new Super[2];//배열생성
          
          ar[0] = new A();
          ar[1] = new B();
