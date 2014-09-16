@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author ¿À¼¼Çö
+ * @author ì˜¤ì„¸í˜„
  * Document : MemberMain 
- * Created on : 2014. 9. 16, ¿ÀÈÄ 5:22:02
+ * Created on : 2014. 9. 16, ì˜¤í›„ 5:22:02
  */
 public class MemberMain {
-    /*
-    public String checkAge(MemberVO vo){
+    
+    public String checkAge(MemberVO vo){ //Ageë¥¼ ì²´í¬í•˜ê¸° ìœ„í•œ ë©”ì„œë“œ
         if(vo.getAge() <= 18){
-            return "[¹Ì¼º³âÀÚ] / ¼º³â";
+            return "[ë¯¸ì„±ë…„ì] / ì„±ë…„";
         }else{
-            return "¹Ì¼º³âÀÚ / [¼º³â]";
+            return "ë¯¸ì„±ë…„ì / [ì„±ë…„]";
         }
     }
-    */
+    
     public static void main(String[] args) {
         MemberMain mm = new MemberMain();
         ArrayList<MemberVO> member = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        MemberControl mc = new MemberControl();
+        //MemberControl mc = new MemberControl();
         
         while(true){
-            System.out.print("1 - È¸¿øÁ¤º¸ÀÔ·Â, 2 - È¸¿ø¸®½ºÆ®Ãâ·Â, 3 - Á¾·á :");
+            System.out.print("1 - íšŒì›ì •ë³´ì…ë ¥, 2 - íšŒì›ë¦¬ìŠ¤íŠ¸ì¶œë ¥, 3 - ì¢…ë£Œ :");
             int n= Integer.parseInt(sc.nextLine());
             if(n==1){
                 MemberVO vo = new MemberVO();
-                System.out.print("È¸¿ø¹øÈ£(int) : ");
+                System.out.print("íšŒì›ë²ˆí˜¸(int) : ");
                 vo.setNum(Integer.parseInt(sc.nextLine()));
-                System.out.print("È¸¿øÀÇ ÀÌ¸§(String) : ");
+                System.out.print("íšŒì›ì˜ ì´ë¦„(String) : ");
                 vo.setName(sc.nextLine());
-                System.out.print("È¸¿øÀÇ ¸ö¹«°Ô(float) : ");
+                System.out.print("íšŒì›ì˜ ëª¸ë¬´ê²Œ(float) : ");
                 vo.setWeight(Float.parseFloat(sc.nextLine()));
-                System.out.print("È¸¿øÀÇ µ¿ÀÇ¿©ºÎ(boolean) : ");
+                System.out.print("íšŒì›ì˜ ë™ì˜ì—¬ë¶€(boolean) : ");
                 vo.setAgree(Boolean.parseBoolean(sc.nextLine()));
-                System.out.print("È¸¿øÀÇ ÀÌ¸ŞÀÏ(String) : ");
+                System.out.print("íšŒì›ì˜ ì´ë©”ì¼(String) : ");
                 vo.setMail(sc.nextLine());
-                System.out.print("È¸¿øÀÇ ³ªÀÌ(int) : ");
+                System.out.print("íšŒì›ì˜ ë‚˜ì´(int) : ");
                 vo.setAge(Integer.parseInt(sc.nextLine()));
-                mc.checkAge(vo);
-                member.add(vo);
+                //mc.checkAge(vo);
+                member.add(vo); //Memberì˜ ì •ë³´ê°€ ë‹´ê¸´ VOë¥¼ ArrayListì— ë„£ëŠ”ë‹¤.
             }else if(n==2){
-                for(MemberVO e : member){
-                    System.out.println("È¸¿ø¹øÈ£ : "+e.getNum());
-                    System.out.println("ÀÌ¸§ : "+ e.getName());
-                    System.out.println("¸ö¹«°Ô : "+e.getWeight()+" Kg");
-                    System.out.println("µ¿ÀÇ¿©ºÎ : "+e.isAgree());
-                    System.out.println("ÀÌ¸ŞÀÏ : "+e.getMail());
-                    System.out.println("³ªÀÌ : "+e.getAge());
-                    System.out.println(mc.getCheck());
-                    //System.out.println(mm.checkAge(e));
+                for(MemberVO e : member){ //Memberì˜ ì •ë³´ë¥¼ ì¶œë ¥í•œë‹¤.
+                    System.out.println("íšŒì›ë²ˆí˜¸ : "+e.getNum());
+                    System.out.println("ì´ë¦„ : "+ e.getName());
+                    System.out.println("ëª¸ë¬´ê²Œ : "+e.getWeight()+" Kg");
+                    System.out.println("ë™ì˜ì—¬ë¶€ : "+e.isAgree());
+                    System.out.println("ì´ë©”ì¼ : "+e.getMail());
+                    System.out.println("ë‚˜ì´ : "+e.getAge());
+                    //System.out.println(mc.getCheck());
+                    System.out.println(mm.checkAge(e));
                 }
             }else if(n==3){
                 break;
