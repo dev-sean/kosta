@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Created on : 2014. 9. 16, 오후 5:22:02
  */
 public class MemberMain {
-    /*
+    
     public String checkAge(MemberVO vo){
         if(vo.getAge() <= 18){
             return "[미성년자] / 성년";
@@ -17,7 +17,7 @@ public class MemberMain {
             return "미성년자 / [성년]";
         }
     }
-    */
+    
     public static void main(String[] args) {
         MemberMain mm = new MemberMain();
         ArrayList<MemberVO> member = new ArrayList<>();
@@ -44,6 +44,7 @@ public class MemberMain {
                 mc.checkAge(vo);
                 member.add(vo);
             }else if(n==2){
+                member.get(0).getAge();//get(index);
                 for(MemberVO e : member){
                     System.out.println("회원번호 : "+e.getNum());
                     System.out.println("이름 : "+ e.getName());
@@ -51,8 +52,8 @@ public class MemberMain {
                     System.out.println("동의여부 : "+e.isAgree());
                     System.out.println("이메일 : "+e.getMail());
                     System.out.println("나이 : "+e.getAge());
-                    System.out.println(mc.getCheck());
-                    //System.out.println(mm.checkAge(e));
+                    //System.out.println(mc.getCheck());
+                    System.out.println(mm.checkAge(e));
                 }
             }else if(n==3){
                 break;
