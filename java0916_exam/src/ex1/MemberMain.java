@@ -4,21 +4,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author 오세현
+ * @author ?��?��??
  * Document : MemberMain 
- * Created on : 2014. 9. 16, 오후 5:22:02
+ * Created on : 2014. 9. 16, ?��?? 5:22:02
  */
 public class MemberMain {
     
-<<<<<<< HEAD
-    public String checkAge(MemberVO vo){
-=======
-    public String checkAge(MemberVO vo){ //Age를 체크하기 위한 메서드
->>>>>>> d3b27d775724b773f8efbabc014feac8da8a553e
+
+    public String checkAge(MemberVO vo){ 
+
         if(vo.getAge() <= 18){
-            return "[미성년자] / 성년";
+            return "[미�?��????] / ?��??";
         }else{
-            return "미성년자 / [성년]";
+            return "미�?��???? / [?��??]";
         }
     }
     
@@ -29,26 +27,26 @@ public class MemberMain {
         //MemberControl mc = new MemberControl();
         
         while(true){
-            System.out.print("1 - 회원정보입력, 2 - 회원리스트출력, 3 - 종료 :");
+            System.out.print("1 - ??????보�????, 2 - ????리�?��?��???, 3 - �?�? :");
             int n= Integer.parseInt(sc.nextLine());
             if(n==1){
                 MemberVO vo = new MemberVO();
-                System.out.print("회원번호(int) : ");
+                System.out.print("????�???(int) : ");
                 vo.setNum(Integer.parseInt(sc.nextLine()));
-                System.out.print("회원의 이름(String) : ");
+                System.out.print("?????? ?��?(String) : ");
                 vo.setName(sc.nextLine());
-                System.out.print("회원의 몸무게(float) : ");
+                System.out.print("?????? 몸무�?(float) : ");
                 vo.setWeight(Float.parseFloat(sc.nextLine()));
-                System.out.print("회원의 동의여부(boolean) : ");
+                System.out.print("?????? ?????��?(boolean) : ");
                 vo.setAgree(Boolean.parseBoolean(sc.nextLine()));
-                System.out.print("회원의 이메일(String) : ");
+                System.out.print("?????? ?��???(String) : ");
                 vo.setMail(sc.nextLine());
-                System.out.print("회원의 나이(int) : ");
+                System.out.print("?????? ????(int) : ");
                 vo.setAge(Integer.parseInt(sc.nextLine()));
                 //mc.checkAge(vo);
-                member.add(vo); //Member의 정보가 담긴 VO를 ArrayList에 넣는다.
+                member.add(vo); //Member?? ??보�? ?�긴 VO�? ArrayList?? ?��????.
             }else if(n==2){
-<<<<<<< HEAD
+
                 member.get(0).getAge();//get(index);
                 for(MemberVO e : member){
                     System.out.println("ȸ����ȣ : "+e.getNum());
@@ -57,15 +55,7 @@ public class MemberMain {
                     System.out.println("���ǿ��� : "+e.isAgree());
                     System.out.println("�̸��� : "+e.getMail());
                     System.out.println("���� : "+e.getAge());
-=======
-                for(MemberVO e : member){ //Member의 정보를 출력한다.
-                    System.out.println("회원번호 : "+e.getNum());
-                    System.out.println("이름 : "+ e.getName());
-                    System.out.println("몸무게 : "+e.getWeight()+" Kg");
-                    System.out.println("동의여부 : "+e.isAgree());
-                    System.out.println("이메일 : "+e.getMail());
-                    System.out.println("나이 : "+e.getAge());
->>>>>>> d3b27d775724b773f8efbabc014feac8da8a553e
+
                     //System.out.println(mc.getCheck());
                     System.out.println(mm.checkAge(e));
                 }

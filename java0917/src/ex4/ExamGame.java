@@ -10,15 +10,17 @@ package ex4;
  * @author kosta
  */
 public class ExamGame extends javax.swing.JFrame {
+
     OddGame og = new OddGame();
-    private int total=0;
-    private int win=0;
+    private int total = 0;
+    private int win = 0;
+
     /**
      * Creates new form ExamGame
      */
     public ExamGame() {
         initComponents();
-        
+
     }
 
     /**
@@ -194,17 +196,18 @@ public class ExamGame extends javax.swing.JFrame {
         // TODO add your handling code here:
         UserLabel.setText("Ȧ");
         String cpu = og.cpuTurn();
-        
+
         CpuLabel.setText(cpu);
         String result = checkGame("Ȧ", cpu);
         ShowLabel.setText(result);
         total++;
-        if(result.equals("WIN")){
+        if (result.equals("WIN")) {
             win++;
         }
+        
         TotalLabel.setText(String.valueOf(total));
         WinLabel.setText(String.valueOf(win));
-        
+
     }//GEN-LAST:event_Button1MousePressed
 
     private void Button2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button2MousePressed
@@ -215,26 +218,29 @@ public class ExamGame extends javax.swing.JFrame {
         String result = checkGame("¦", cpu);
         ShowLabel.setText(result);
         total++;
-        if(result.equals("WIN")){
+        if (result.equals("WIN")) {
             win++;
         }
         TotalLabel.setText(String.valueOf(total));
         WinLabel.setText(String.valueOf(win));
-        
+
     }//GEN-LAST:event_Button2MousePressed
 
     private void Button3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button3MousePressed
         // TODO add your handling code here:
-        System.exit(0);        
+        System.exit(0);
+
+
     }//GEN-LAST:event_Button3MousePressed
-    
-    private String checkGame(String userlabel, String cpulabel){
-        if(userlabel.equals(cpulabel)){
+
+    private String checkGame(String userlabel, String cpulabel) {
+        if (userlabel.equals(cpulabel)) {
             return "WIN";
-        }else{
+        } else {
             return "LOSE";
         }
     }
+
     /**
      * @param args the command line arguments
      */
