@@ -4,7 +4,7 @@ package ex1;
  * Document : Ex4_DataType Created on : 2014. 9. 2, 오전 11:48:04
  */
 public class Ex4_DataType {
-    //psvm [TAB Key]
+    //psvm [TAB Key] 
     public static void main(String[] args) {
         String str1 = "J"; //암시적으로 객체가 생성된 String
         //""는 string 객체다. 문자열이다.

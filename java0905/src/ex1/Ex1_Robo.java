@@ -2,8 +2,8 @@ package ex1;
 
 /**
  * @author 오세현 Document : Ex1_Robo Created on : 2014. 9. 5, 오전 10:30:40 클래스를
- * 설계하고 정의하는 방법 접근제한자 : public, default 클래스명은 앞 첫글자는 항상 대문자로 작성, 식별자 명명규칙 main
- * 메서드는 분리한다.
+ * 설계하고 정의하는 방법 접근제한자 : public, default 클래스명은 앞 첫글자는 항상 대문자로 작성, 식별자 명명규칙 
+ * main 메서드는 분리한다.
  */
 
 public class Ex1_Robo {

@@ -4,6 +4,19 @@ package exam;
  * Document : Exam1 
  * Created on : 2014. 9. 11, 오전 9:31:29
  */
+public class Exam1 {
+    
+    public void test(int n){
+        n = n+10;
+        System.out.println("n1: "+n);
+    }
+    public static void main(String[] args) {
+        Exam1 te = new Exam1(); //자기 자신을 다시 생성
+        int n = 10;
+        te.test(n);
+        System.out.println("n2: "+n);
+    }
+}
 /*
 public class Exam1 {
     //call by value
@@ -32,16 +45,3 @@ public class Exam1 {
     }
 }
 */
-public class Exam1 {
-    
-    public void test(int n){
-        n = n+10;
-        System.out.println("n1: "+n);
-    }
-    public static void main(String[] args) {
-        Exam1 te = new Exam1(); //자기 자신을 다시 생성
-        int n = 10;
-        te.test(n);
-        System.out.println("n2: "+n);
-    }
-}

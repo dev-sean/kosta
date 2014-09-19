@@ -17,6 +17,5 @@ public class Main {
              e.draw(msg[i]);
              i++;
          }
-
     }
 }

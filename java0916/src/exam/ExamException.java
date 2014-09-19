@@ -22,7 +22,7 @@ public class ExamException {
             System.out.println("자원반납");
         } catch (NumberFormatException e) {
             System.out.println(e+"숫자만 넣엉~");
-            return;
+            return;// try문을 끝내라.
         } catch(ArithmeticException e ){
             System.out.println(e+"0이네?");
         } catch(Exception e){ //최상위 exception

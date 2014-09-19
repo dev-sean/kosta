@@ -22,7 +22,7 @@ public class Ex1_AbstractMain extends Ex1_Abstract{
         //사용될 수 없기 때문에 미완성인 추상메서드로 정의 해두면
         //재정의된 자식에 의해서 완성이되어서 사용이 됨
         Ex1_Abstract ref1 = new Ex1_Abstract() {
-
+            //로컬, 익명내부클래스
             @Override
             public void moveMount() {
                 System.out.println("또하냐?");

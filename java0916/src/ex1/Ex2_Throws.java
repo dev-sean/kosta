@@ -13,7 +13,6 @@ public class Ex2_Throws {
             String str = m.substring(0, 1);
             printData(str);
         }
-        
     }
     //throws 호출한 쪽으로 위임
     public void printData(String m) throws NumberFormatException{
@@ -24,17 +23,4 @@ public class Ex2_Throws {
             System.out.println(dan +"*"+(i+1)+" = "+ (dan*(i+1)));
         }
     }
-    /*
-    public static void main(String[] args) {
-        Ex2_Throws ref = new Ex2_Throws();
-        Scanner sc = new Scanner(System.in);
-        try {
-            ref.setData("1");
-            ref.setData("sdf");
-        } catch (Exception e) {
-            System.out.println("정수만입력바람");
-        }
-        
-    }
-    */
 }

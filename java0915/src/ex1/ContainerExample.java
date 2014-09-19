@@ -1,4 +1,3 @@
-
 package ex1;
 
 import ex3.InterFaceTest;
@@ -13,7 +12,6 @@ import javax.swing.JPanel;
  * @author kosta
  * Document    : NewClass created on : 2014. 9. 15, 오전 10:38:38
  */
-
 //extends JFrame는 가장 base, container인 객체이므로
 //상속으로 처리하는 것이 바람직하다.
 //인터페이스는 다중구현이 가능하다.

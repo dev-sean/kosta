@@ -27,7 +27,7 @@ public class Ex1_Exception {
         for (int i = 0; i <=3; i++){
             try {
                 System.out.println(bar[i]);//¿¹¿Ü¹ß»ý. 3À» ¸øÃ£À½.
-                System.out.println("Ä¼Ä¼?Ä¼Ä¼Ä¼");
+                System.out.println("Ä¼Ä¼Ä¼");
             } catch (Exception e) {
                 System.out.println("¹è¿­ÀÇ ¹üÀ§¸¦ ³Ñ¾ú´Ù.");
             }

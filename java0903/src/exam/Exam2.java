@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Document : Exam2 Created on : 2014. 9. 3, 오후 2:33:52
  */
 public class Exam2 {
-
+    //입력한 수만큼 출력을 하는데 입력한 범위의 숫자만큼 짤라서 정렬
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num;
@@ -23,6 +23,7 @@ public class Exam2 {
             } else {
                 System.out.print(i + " ");
             }
+            
         }        
         /*
         for(int i=0; i<=num; i++){
@@ -32,6 +33,7 @@ public class Exam2 {
             System.out.print(i+"\t");
         }        
         */
+        System.out.println("");
         System.out.print("수를 입력하세요 : ");
         num = Integer.parseInt(sc.nextLine());
         System.out.print("범위를 입력하세요 : ");

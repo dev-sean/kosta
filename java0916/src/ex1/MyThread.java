@@ -17,7 +17,7 @@ public class MyThread {
         for (int i = 0; i < 10; i++) {
             try {
                 //일반적인 예외는 반드시 컴파일단계에서 점검한다.
-                Thread.sleep(1000);
+                Thread.sleep(1000);//1초 휴식!!
                 System.out.println(i);
             } catch (InterruptedException ex) {
                 Logger.getLogger(MyThread.class.getName()).log(Level.SEVERE, null, ex);

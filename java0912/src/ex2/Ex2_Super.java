@@ -13,7 +13,5 @@ public class Ex2_Super {
 
     public int getNum() {
         return num;
-    }
-
-    
+    } 
 }

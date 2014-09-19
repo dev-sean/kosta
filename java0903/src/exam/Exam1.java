@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Exam1 {
 
     public static void main(String[] args) {
-        //Scanner로부터 수를 입력받은 후 그 수가 홀수잊지 짝수인지를 출력하세요
+        //Scanner로부터 수를 입력받은 후 그 수가 홀수인지 짝수인지를 출력하세요
         // ex) 수 입력 : 1 <Enter
         // 입력한 수 [ 1 ] 은 홀수입니다.
    

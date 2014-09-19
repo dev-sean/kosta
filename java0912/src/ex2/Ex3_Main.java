@@ -16,5 +16,4 @@ public class Ex3_Main{
         //부모를 참조해서 객체를 생성하는 경우
         Ex3_Super ref2 = new Ex3_Sub("31세", "ㅏㅏㅏ", 3010);
     }
-
 }

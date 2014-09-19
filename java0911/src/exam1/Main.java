@@ -12,10 +12,8 @@ public class Main {
         System.out.println("출근전 대문의 색깔 : "+home.getDoor_color());
         
         painta.paintHome(home, "주황색");
-        //System.out.println("A회사 주문후 대문의 색깔 : "+ home.getDoor_color());
         
         paintb.paintHome(home, "검은색");
         System.out.println("퇴근의 대문 색깔 : "+home.getDoor_color());
-        
     }
 }

@@ -12,6 +12,7 @@ public class UserExceptionTest {
     private void test(String n) throws UserException{
         if(n.length() < 1){
             throw ues = new UserException("값을 넣어야 합니다.");
+            //throw : 예외가 발생되었음을 JVM에 알리기 위한 키워드
         }else{
             throw ues = new UserException("최종예선", 703);
         }

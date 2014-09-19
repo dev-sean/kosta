@@ -10,7 +10,6 @@ public class Ex1_CallByReference {
     private Ex1_MemberVO ref;
 
     //한사람의 정보를 출력. 번호,이름,나이,성별,전화번호
-
     public void info(Ex1_MemberVO ref) {
         this.ref = ref;
 //        System.out.println("번호 : "+ref.getNum());

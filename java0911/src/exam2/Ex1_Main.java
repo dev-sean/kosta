@@ -7,26 +7,6 @@ import java.util.Scanner;
  * Document : Ex1_Main 
  * Created on : 2014. 9. 11, 오전 11:28:57
  */
-/*
-public class Ex1_Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("번호입력 : ");
-        int num = Integer.parseInt(sc.nextLine());
-        System.out.print("이름입력 : ");
-        String name = sc.nextLine();
-        System.out.print("나이입력 : ");
-        int age = Integer.parseInt(sc.nextLine());
-        System.out.print("성별입력 : ");
-        String gender = sc.nextLine();
-        System.out.print("전화번호입력 : ");
-        String tel = sc.nextLine();
-        
-        Ex1_CallByReference ref = new Ex1_CallByReference();
-        ref.info(num, name, age, gender, tel);
-    }
-}
-*/
 public class Ex1_Main{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -53,3 +33,23 @@ public class Ex1_Main{
         System.out.println(ref1.getRef().getName());
     }
 }
+/*
+public class Ex1_Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("번호입력 : ");
+        int num = Integer.parseInt(sc.nextLine());
+        System.out.print("이름입력 : ");
+        String name = sc.nextLine();
+        System.out.print("나이입력 : ");
+        int age = Integer.parseInt(sc.nextLine());
+        System.out.print("성별입력 : ");
+        String gender = sc.nextLine();
+        System.out.print("전화번호입력 : ");
+        String tel = sc.nextLine();
+        
+        Ex1_CallByReference ref = new Ex1_CallByReference();
+        ref.info(num, name, age, gender, tel);
+    }
+}
+*/

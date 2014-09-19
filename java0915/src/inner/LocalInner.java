@@ -16,7 +16,6 @@ public class LocalInner {
         int b = 200;//메서드 내의 지역변수
         final int C = 300; //상수
         //Local 내부 클래스
-        //
         class Inner extends Animal2{
             public void getData(){
                 //외부클래스의 자원 접근

@@ -35,7 +35,9 @@ public class Ex3_Generic {
         ArrayList<Integer> num = new ArrayList<>();
         num.add(10);
         num.add(Integer.parseInt("11"));
-        
+    }
+}
+
         //과제
         //ArrayList를 사용하다 보니까
         //회원정보를 저장하고 싶다.
@@ -62,5 +64,3 @@ public class Ex3_Generic {
         //==========================
         
         //[ 과제 ] - B조 오세현 : ArrayList를 응용한 회원관리
-    }
-}

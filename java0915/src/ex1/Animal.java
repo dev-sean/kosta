@@ -9,8 +9,7 @@ public class Animal {
         System.out.println("");
     }
 
-    String msg(String msg) {
-         
+    String msg(String msg) {     
          return "º°"+msg;
     }
 }

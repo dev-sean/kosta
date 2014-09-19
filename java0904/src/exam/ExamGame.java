@@ -7,6 +7,7 @@ import java.util.Scanner;
  * Document   : ExamGame Created on : 2014. 9. 4, 오후 2:16:09
  */
 public class ExamGame {
+    //예시답안
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int winCnt=0, totalCnt=0;
@@ -40,7 +41,7 @@ public class ExamGame {
         }
     }
     //메서드의 반환형 - 반환될 자료형으로 명시
-    //return 자료형에 맞는 값   을 사용해야함
+    //return 자료형에 맞는 값을 사용해야함
     public static int winn(int win,int total){ 
     //메서드 분화. 
     //다른 클래스에서도 사용할 수있도록 만드는 것이다.

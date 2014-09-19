@@ -47,5 +47,12 @@ public class Ex6_Oper {
         String svc1 = new String("MyTest");
         String svc2 = new String("MyTest");
         System.out.println("svc1/svc2qq 내용비교 :"+(svc1.equals(svc2)));//true
+        System.out.println(svc1==svc2);
+        String svc3 = "Q";
+        String svc4 = "Q";
+        System.out.println(svc3==svc4);
+        //암시적 객체 생성일 경우에는 String의 주소 값이 같다.
+        //scanner를 이용해서 String msg = sc.nextLine()으로 문자열을 입력받을 때는
+        //nextLine()안에서 new를 사용하여 객체를 생성한 후에 넘겨주기 때문에 주소값이 다르다.
     }
 }
