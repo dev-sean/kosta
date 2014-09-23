@@ -5,6 +5,10 @@
  */
 package ex1;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,6 +16,12 @@ import javax.swing.JOptionPane;
  * @author kosta
  */
 public class HomeWork extends javax.swing.JFrame {
+
+    private int x;
+    private int y;
+    private int size;
+    private int angle;
+    private boolean flag;
 
     /**
      * Creates new form HomeWork
@@ -29,13 +39,16 @@ public class HomeWork extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        canvas1 = new java.awt.Canvas(){
+        can = new java.awt.Canvas(){
             @Override
             public void paint(Graphics g) {
                 //원 그려보기
-                g.setColor(Color.red);
-                g.fillOval(x, y, 50, 50);
-                g.drawArc(200, 100, 100, 100, 0, angle);
+                g.setColor(selectColor());
+                g.fillOval(x, y, size, size);
+                if(flag){
+                    g.setColor(Color.black);
+                    g.drawArc(100, 100, 50, 50, 0, angle);
+                }
             }
 
             @Override
@@ -44,25 +57,30 @@ public class HomeWork extends javax.swing.JFrame {
             }
         };
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        ColorBox = new javax.swing.JComboBox();
+        ClickButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox();
+        SizeBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        canvas1.setBackground(new java.awt.Color(255, 255, 0));
-        canvas1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        can.setBackground(new java.awt.Color(255, 255, 0));
+        can.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                canvas1MouseDragged(evt);
+                canMouseDragged(evt);
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 51));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "선택", "RED", "BLUE", "GREEN", "PINK" }));
+        ColorBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "선택", "RED", "BLUE", "GREEN", "PINK" }));
 
-        jButton1.setText("적용");
+        ClickButton.setText("Click");
+        ClickButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClickButtonActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Test");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -71,32 +89,32 @@ public class HomeWork extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "크기", "10", "20", "30", "40", "50", "60" }));
+        SizeBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "크기", "10", "20", "30", "40", "50", "60" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SizeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addComponent(ClickButton)
                 .addGap(72, 72, 72))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ClickButton)
+                    .addComponent(SizeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addGap(30, 30, 30))
         );
 
@@ -106,14 +124,14 @@ public class HomeWork extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(can, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(can, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -122,17 +140,54 @@ public class HomeWork extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void canvas1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseDragged
+    private void canMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canMouseDragged
         //그림을 그리시고
-        
-    }//GEN-LAST:event_canvas1MouseDragged
+        x = evt.getX();
+        y = evt.getY();
+        String m = (String) SizeBox.getSelectedItem(); //선택 값
+
+        size = Integer.parseInt(m);
+        can.repaint();
+    }//GEN-LAST:event_canMouseDragged
+
+    private Color selectColor() {
+        String color = (String) ColorBox.getSelectedItem();
+        if (color.equals("RED")) {
+            return Color.red;
+        } else if (color.equals("BLUE")) {
+            return Color.blue;
+        } else if (color.equals("GREEN")) {
+            return Color.green;
+        } else {
+            return Color.pink;
+        }
+    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int index = jComboBox1.getSelectedIndex();//인덱스
-        String m = (String) jComboBox1.getSelectedItem(); //선택 값
-        JOptionPane.showMessageDialog(this, "선택한 색 :"+index +" "+m);
-        
+
+        //String m = (String) ColorBox.getSelectedItem(); //선택 값
+        //size = Integer.parseInt(m);
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ClickButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClickButtonActionPerformed
+        flag = true;
+        new Thread() {
+
+            @Override
+            public void run() {
+                for (angle = 0; angle <= 360; angle += 10) {
+                    try {
+                        Thread.sleep(1000);
+                        can.repaint();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+
+    }//GEN-LAST:event_ClickButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,11 +225,11 @@ public class HomeWork extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Canvas canvas1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ClickButton;
+    private javax.swing.JComboBox ColorBox;
+    private javax.swing.JComboBox SizeBox;
+    private java.awt.Canvas can;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
