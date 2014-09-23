@@ -6,9 +6,11 @@ package ex2;
 import java.awt.Canvas;
 
 public class MyThread1 extends Thread{
-
+    //MultiCanvas 객체의 주소를 가져오기 위한 멤버필드
     private MultiCanvas myCan;
-
+    //생성자를 이용해서 현재 스레드가 생성되면
+    //MultiCanvas 객체를 가져온다. 
+    //이렇게 되면 MyThread1 클래스에서 MultiCanvas 클래스에 접근할 수 있다.
     public MyThread1(MultiCanvas myCan) {
         this.myCan = myCan;
     }
@@ -27,8 +29,8 @@ public class MyThread1 extends Thread{
             }
             int tmpN = myCan.getArcNum();
             tmpN += tmpN + 10;
-            myCan.setArcNum(tmpN);
-            myCan.getCan().repaint();
+            myCan.setArcNum(tmpN);//Arc의 angle값을 설정한다.
+            myCan.getCan().repaint();//Canvas를 다시 설정한다.
         }
     }
 }
