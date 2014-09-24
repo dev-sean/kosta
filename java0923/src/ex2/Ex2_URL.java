@@ -17,11 +17,11 @@ import java.net.URL;
 //urlconnection openstream
 public class Ex2_URL {
     public static void main(String[] args) throws MalformedURLException, IOException {
-        URL url = new URL("http://book.naver.com/bookdb/today_book.nhn?bid=6888227");
-        System.out.println(url.getPath());
-        System.out.println(url.getHost());
-        System.out.println(url.getProtocol());
-        System.out.println(url.getRef());
+        URL url = new URL("http://book.naver.com/bookdb/today_book.nhn?bid=6888227#wer");
+        System.out.println(url.getPath());// /bookdb/today_book.nhn
+        System.out.println(url.getHost());// book.naver.com
+        System.out.println(url.getProtocol());// http
+        System.out.println(url.getRef());// wer
         System.out.println(url.getContent());
         InputStream is = url.openStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));

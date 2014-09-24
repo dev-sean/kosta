@@ -31,8 +31,7 @@ public class ATM implements Runnable {
     }
 
     //임계영역 발생 지점 : 스레드들이 모여서 공동으로 작업하는 공간
-    //여기서 동시성 문제가 발생 될 수 있다.
-    
+    //여기서 동시성 문제가 발생 될 수 있다.    
     //synchronized를 걸어서 작성하면 Lock Pool에 스레드가 들어가서
     //해당 일을 할 동안 다른 스레드의 간섭을 받지 않는다.
     private synchronized void withDraw(int howMuch) {
