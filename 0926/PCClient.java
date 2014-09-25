@@ -1,0 +1,87 @@
+/*
+ * ê·¸ë¦¼??+ì±???ë°?
+ *
+ * <?¹ì??¤ë?>
+ * 1. ê·???ë§? - ì½¤ë³´ë°??¤ì???? ?´ë??? ?????? ê·? ?¬ë????ê²?ë§? ë§???ê¸?
+ * 2. ???´í?? ?¬í?? ???¥ì°½
+ * 3. ???? ?¬ì?? ???? ????ëª? ??ë©´ì?? ????
+ * 4. ê·¸ë¦¼???? ?????? ì±???ë°©ì?? ?????? ????
+ *
+ * ?´ë?¼ì?´ì?¸í?? ?´ë???? - ?¤í??ë©????? ????
+ */
+
+package newpackage;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.StringTokenizer;
+
+public class PCClient {
+
+    private Socket socket;
+    private PCServer server;
+    private PrintWriter pw;
+    private String nickName;
+
+    public PCClient(Socket sk, PCServer sv) {
+        // Client ?? socket ê³? ??ë²? ê°?ì²? ì£¼ì?? ë°?ê¸?
+        socket = sk;
+        server = sv;
+        try {
+            pw = new PrintWriter(sk.getOutputStream(), true);
+        } catch (IOException ex) {
+        }
+
+        // ?°ì?´í?? ?½ê¸°ë¥? ???? Thread
+        Thread t = new Thread(new Runnable() {
+
+            private BufferedReader bfr;
+
+            public void run() {
+                try {
+                    bfr = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    // ë©???ì§?ë¥? ?½ì?¼ë©´ ë©???ì§? ë³???ë©?????(transMsg()) ?¸ì?
+                    while (true) {
+                        String msg = bfr.readLine();
+                        transMsg(msg); // ë³???ë©????? ?¸ì?(transMsg(msg))
+                    }
+                } catch (IOException ex) {
+                } finally {
+                    if (bfr != null) {
+                        try {
+                            bfr.close();
+                        } catch (IOException ex) {
+                        }
+                    }
+                }
+            }
+
+            // ë©???ì§? ???? ?? ??ë²??? sendMsg ë©????? ?¸ì?
+            private void transMsg(String msg) {
+                StringTokenizer stn = new StringTokenizer(msg, "/");
+                String t1 = stn.nextToken();
+                String t2 = stn.nextToken();
+                String t3 = stn.nextToken();
+                String t4 = stn.nextToken();
+                nickName = t3; // ????ëª? ?¤ì??
+
+                // ??ë²??? sendMsg ?¸ì? - ???°ë?? ë©???ì§?ë¥? ???¬í????
+                server.sendMsg(t1, t2, t3, t4, PCClient.this); // ?????? ì£¼ì???? ê°??? ????
+            }
+        });
+
+        t.start(); // Thread ?¤í??
+    }
+
+    public PrintWriter getPw() { // ì¶??¥ì?¤í?¸ë¦¼ ì£¼ì?? ë°?ê¸?
+        return pw;
+    }
+
+    public String getNickName() { // ???¤ì?? ë°?ê¸?
+        return nickName;
+    }
+
+}

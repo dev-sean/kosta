@@ -1,4 +1,4 @@
-package ex1;
+package ex1_2;
 /**
  * @author kosta 
  * Document   : MultiSocketServer Created on : 2014. 9. 25, ¿ÀÀü 8:54:21
