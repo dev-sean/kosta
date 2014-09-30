@@ -87,7 +87,7 @@ public class insertDemo {
                 msg += rs.getString("bname");
                 msg += rs.getString("bbirth");
                 msg += rs.getString("bemail");
-                
+
                 return msg;
             }
             System.out.println(msg);
@@ -97,4 +97,55 @@ public class insertDemo {
 
         return msg;
     }
+
+    public boolean checkid(String id) {
+        String idmsg = null;
+        try {
+            sql.append("select bid from bord where bid=?");
+            pstm = con.prepareStatement(sql.toString());
+
+            pstm.setString(1, id);
+
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                idmsg = rs.getString("bid");
+            }
+
+            if (idmsg.equals(id)) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    /*
+    public int findIdResult(){
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String url = "jdbc:oracle:thin:@localhost:1521/pdborcl";
+        String user = "sqlexam";
+        String pass = "new14";
+        int resN = 0;
+        //requestFocus();
+    
+        try {
+            con = DriverManager.getConnection(url,user,pass);
+            StringBuffer sql = new StringBuffer();
+            sql.append("select count(*) cnt from member ");
+            sql.append(" where rid=?");
+            pstmt = con.prepareStatement(sql.toString());
+            pstmt.setString(1, ridv.getText().trim());
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                resN = rs.getInt("cnt");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return resN;
+    }
+    */
 }

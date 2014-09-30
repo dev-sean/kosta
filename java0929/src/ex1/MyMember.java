@@ -13,8 +13,10 @@ import javax.swing.JOptionPane;
  * @author kosta
  */
 public class MyMember extends javax.swing.JFrame {
+
     private CardLayout card;
     private insertDemo demo;
+
     /**
      * Creates new form MyMember
      */
@@ -64,6 +66,11 @@ public class MyMember extends javax.swing.JFrame {
         idField.setText("click");
 
         idcheckBtn.setText("중복검사");
+        idcheckBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idcheckBtnActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("비밀번호");
 
@@ -223,32 +230,42 @@ public class MyMember extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        String id= idField.getText().trim();
+        String id = idField.getText().trim();
         String pass = passwordField.getText().trim();
         String name = nameField.getText().trim();
         String birth = birthField.getText().trim();
         String mail = emailField.getText().trim();
-        
+
         demo.setContent(id, pass, name, birth, mail);
-        
+
         idField.setText("");
         passwordField.setText("");
         nameField.setText("");
         birthField.setText("");
-        emailField.setText(""); 
-        
+        emailField.setText("");
+
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         card.show(pp, "c1");
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void listBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listBtnActionPerformed
         card.show(pp, "c2");
         demo.printContent();
     }//GEN-LAST:event_listBtnActionPerformed
+
+    private void idcheckBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idcheckBtnActionPerformed
+        boolean a = demo.checkid(idField.getText());
+        if (a) {
+            JOptionPane.showMessageDialog(this, "중복이에요");
+        }else{
+            JOptionPane.showMessageDialog(this, "사용가능");
+        }
+
+    }//GEN-LAST:event_idcheckBtnActionPerformed
 
     /**
      * @param args the command line arguments
