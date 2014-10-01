@@ -54,6 +54,9 @@ public class MyMember extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         resultArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        searchType = new javax.swing.JComboBox();
+        searchValue = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,28 +192,49 @@ public class MyMember extends javax.swing.JFrame {
             }
         });
 
+        searchType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "선택", "이름", "이메일", "아이디" }));
+
+        jButton2.setText("검색");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mlistLayout = new javax.swing.GroupLayout(mlist);
         mlist.setLayout(mlistLayout);
         mlistLayout.setHorizontalGroup(
             mlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mlistLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(mlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mlistLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(mlistLayout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jButton1)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(searchType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchValue, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(0, 11, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mlistLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         mlistLayout.setVerticalGroup(
             mlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mlistLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mlistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1))
         );
 
         pp.add(mlist, "c2");
@@ -267,6 +291,10 @@ public class MyMember extends javax.swing.JFrame {
 
     }//GEN-LAST:event_idcheckBtnActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        resultArea.append("WooRi Kim is HTML MAster\n");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +336,7 @@ public class MyMember extends javax.swing.JFrame {
     private javax.swing.JTextField idField;
     private javax.swing.JButton idcheckBtn;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -322,5 +351,7 @@ public class MyMember extends javax.swing.JFrame {
     private javax.swing.JTextField passwordField;
     private javax.swing.JPanel pp;
     private javax.swing.JTextArea resultArea;
+    private javax.swing.JComboBox searchType;
+    private javax.swing.JTextField searchValue;
     // End of variables declaration//GEN-END:variables
 }

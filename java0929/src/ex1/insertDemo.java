@@ -67,11 +67,28 @@ public class insertDemo {
             }
         }
     }
+    
+    public void getList(){
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            System.out.println("드라이버 로딩 성공");
+            String url = "jdbc:oracle:thin:@localhost:1521/pdborcl";
+            String user = "sqlexam";
+            String pass = "new14";
+            con = DriverManager.getConnection(url, user, pass);
+            
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 
     public String printContent() {
         String msg = null;
 
-        sql.append("select bordno, bid, bpwd, bname, bbirth, bemail from member");
+        sql.append("select * from member");
         sql.append(" order by 1 desc");//내림차순 desc 1 - num
         try {
             //쿼리 전송
@@ -81,14 +98,7 @@ public class insertDemo {
             //돌려받은 Cursor를 사용해서 데이터를 출력
             //rs.next( ) Cursor가 있을 경우 true를 리턴
             while (rs.next()) {
-                msg += rs.getInt("bordno");
-                msg += rs.getString("bid");
-                msg += rs.getString("bpwd");
-                msg += rs.getString("bname");
-                msg += rs.getString("bbirth");
-                msg += rs.getString("bemail");
-
-                return msg;
+                //listView.append("번호" + rs.getInt("num")+"\n";
             }
             System.out.println(msg);
         } catch (SQLException ex) {
