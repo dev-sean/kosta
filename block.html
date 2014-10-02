@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <title> HTML5 예제 </title>
+    <meta charset="utf-8"/>
+    <style>
+        #can1{ background-color:black;}
+    </style>
+    <script type="text/javascript">
+        var context;
+        var cvs;
+        var b_radius = 20; //볼의 반지름
+        var c_w = 500; //Canvas폭
+        var c_h = 400; //Canvas높이
+        var bx=c_w/2,by=c_h-60; //볼의 위치(중심좌표)
+        var m_x = 3;//수평이동폭
+        var m_y = 3;//수직이동폭
+        var b_right = true;//오른쪽이동중?
+        var b_down  = true;//아랬족이동중?
+        //바(bar) 정보
+        var bar_w=100,bar_h=30;//bar크기
+        var bar_x=c_w/2-40,bar_y=c_h-bar_h;//bar위치
+        //타이머..
+        var timer;
+
+        //키가눌린상태..
+        var down_left=false,down_right=false;
+
+        //Keyboard Event
+        document.onkeydown=function(e){
+
+            if(e.keyCode==37){ //left
+                down_left = true;
+            }
+            else if(e.keyCode==39){//right
+                down_right = true;
+            }
+        };
+
+        document.onkeyup = function(e){
+            //키가 떨어졌을때 상태....
+            down_left = down_right = false;
+        } ;
+
+
+        //초기화
+        window.onload=function(){
+
+            cvs     = document.getElementById("can1");
+            context = cvs.getContext("2d");
+
+            drawball();
+
+        }
+
+        function start()
+        {
+            bx=c_w/2;
+            by=c_h-60;
+//타이머..
+            timer = setInterval("drawball();",10);// 1/1000초단위..
+        }
+
+        function drawbar()
+        {
+//밑에 바 이동...
+            if(down_left)  bar_x -=5;
+            if(down_right) bar_x +=5;
+
+//Bar 그리기
+            context.beginPath();
+            var g1 = context.createRadialGradient(
+                    bar_x,bar_y,0,
+                    bar_x,bar_y,100);
+            g1.addColorStop(0,   "#ff0000");
+            g1.addColorStop(0.5,   "#00ff00");
+            g1.addColorStop(1,   "#0000ff");
+            context.fillStyle = g1;
+            context.fillRect(bar_x,bar_y,bar_w,bar_h);
+
+
+            context.fill();
+            context.closePath();
+        }
+
+        function collision_bar()
+        {
+            var base_y = by+b_radius;
+            if(base_y >= bar_y)
+            {
+                if(bx >= bar_x && bx <= (bar_x+bar_w)){
+                    b_down = false;
+                }
+            }
+
+            if(base_y >= c_h)
+                clearInterval(timer);//타이머 정지
+
+
+        }
+
+        function drawball()
+        {
+//   바에 공이 맞았냐?  
+            collision_bar();
+
+//수평방향에 대한 처리..  
+            bx = (b_right==true) ? (bx + m_x) : (bx - m_x);
+            //충돌체크(오른쪽벽 닿았냐?)
+            if(bx+b_radius > c_w){
+                bx = c_w - b_radius;
+                b_right=false;//왼쪽으로 이동해라..
+            }
+            else if(bx-b_radius < 0){//왼쪽벽에 닿았으면..
+                bx = b_radius;
+                b_right=true;//오른쪽으로 이동해라..
+            }
+//수직방향에 대한 처리..  
+            by = (b_down==true) ? (by + m_y) : (by - m_y);
+            //충돌체크(아랫쪽벽 닿았냐?)
+            if(by+b_radius > c_h){
+                by = c_h - b_radius;
+                b_down=false;//윗쪽으로 이동해라..
+            }
+            else if(by-b_radius < 0){//윗쪽벽에 닿았으면..
+                by = b_radius;
+                b_down=true;//아랫쪽으로 이동해라..
+            }
+
+
+            //이전화면 지우기..
+            context.clearRect(0,0,c_w,c_h);
+
+            context.beginPath();
+//공그리기
+            //색상을 그라데이션 처리
+            var g = context.createRadialGradient(bx-10,by-10,0,
+                            bx-10,by-10,
+                            b_radius+20);
+            g.addColorStop(0, "#eeeeee");
+            g.addColorStop(1, "#333333");
+            context.fillStyle = g;
+            context.arc(bx,by,b_radius,0,2*Math.PI,true);
+            context.fill();
+            context.closePath();
+
+//bar그리기 함수
+            drawbar();
+
+        }
+
+        function small()
+        {
+            //Canvas크기도 조정=>내부단위는 유지된다.
+            cvs.width = c_w/2;
+            cvs.height = c_h/2;
+            context.scale(0.5,0.5);
+            drawball();
+        }
+
+        function big()
+        {
+            cvs.width = c_w;
+            cvs.height = c_h;
+            context.scale(1.0,1.0);
+            drawball();
+        }
+    </script>
+</head>
+<body>
+<canvas id="can1" width="500" height="400">
+    현재 브라우져는 canvas를 지원하지 않습니다.
+</canvas>
+<br/>
+<input type="button"  value="Game Start" onclick="start()">
+<input type="button"  value="작게" onclick="small()">
+<input type="button"  value="크게" onclick="big()">
+</body>
+</html>
