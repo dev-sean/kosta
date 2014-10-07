@@ -128,7 +128,6 @@ public class Game extends JFrame implements KeyListener {
                             up_bar_x = Integer.parseInt(st.nextToken());
                             up_bar_y = Integer.parseInt(st.nextToken());
                             canvas.repaint();
-                            System.out.println(up_bar_x + "l" + up_bar_y);
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
                         }
