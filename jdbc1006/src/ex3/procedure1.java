@@ -9,6 +9,8 @@ import java.awt.CardLayout;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,6 +59,8 @@ public class procedure1 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         resultArea = new javax.swing.JTextArea();
         backBtn = new javax.swing.JButton();
+        searchField = new javax.swing.JTextField();
+        searchBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,18 +187,30 @@ public class procedure1 extends javax.swing.JFrame {
             }
         });
 
+        searchBtn.setText("검색");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(backBtn)
-                .addGap(35, 35, 35))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backBtn)
+                        .addGap(35, 35, 35))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(26, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +218,11 @@ public class procedure1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backBtn)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(backBtn)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -224,6 +244,7 @@ public class procedure1 extends javax.swing.JFrame {
 
     private void listBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listBtnActionPerformed
         card.show(pp,"c2");
+        printText();
     }//GEN-LAST:event_listBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -233,6 +254,98 @@ public class procedure1 extends javax.swing.JFrame {
     private void insertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertBtnActionPerformed
         addText();
     }//GEN-LAST:event_insertBtnActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        serarchText();
+    }//GEN-LAST:event_searchBtnActionPerformed
+    private StringBuffer sql;
+    private PreparedStatement pstm;
+    public void serarchText(){
+           sql = new StringBuffer();
+        sql.append("select * from sawon where sabun=?");
+
+        try {
+            pstm = con.prepareStatement(sql.toString());
+            pstm.setInt(1,Integer.parseInt(searchField.getText()));
+            rs = pstm.executeQuery();
+            while(rs.next()){
+                resultArea.setText("");
+                resultArea.append("사번 : ");
+                resultArea.append(String.valueOf(rs.getInt("sabun")));
+                resultArea.append("\n");
+                resultArea.append("이름 : ");
+                resultArea.append(rs.getString("saname"));
+                resultArea.append("\n");
+                resultArea.append("성별 : ");
+                resultArea.append(rs.getString("sasex"));
+                resultArea.append("\n");
+                resultArea.append("급여 : ");
+                resultArea.append(String.valueOf(rs.getInt("sapay")));
+                resultArea.append("\n");
+                resultArea.append("부서번호 : ");
+                resultArea.append(String.valueOf(rs.getInt("deptno")));
+                resultArea.append("\n");
+                resultArea.append("직책 : ");
+                resultArea.append(rs.getString("sajob"));
+                resultArea.append("\n");
+                resultArea.append("고용일자 : ");
+                resultArea.append(rs.getString("sahire"));
+                resultArea.append("\n");
+                resultArea.append("매니저번호 : ");
+                resultArea.append(String.valueOf(rs.getInt("samgr")));
+                resultArea.append("\n");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+    }
+    
+    private ResultSet rs;
+    public void printText(){
+        int i=1;
+        try {
+            
+            cs = con.prepareCall("begin pro_out(?); end;");
+            cs.registerOutParameter(1, oracle.jdbc.OracleTypes.CURSOR);
+            cs.execute();
+            rs = (ResultSet) cs.getObject(1);
+            while(rs.next()){
+                
+                //sabun, saname, sasex, sapay, deptno, sajob, sahire, samgr
+                resultArea.append("사번 : ");
+                resultArea.append(String.valueOf(rs.getInt("sabun")));
+                resultArea.append("\n");
+                resultArea.append("이름 : ");
+                resultArea.append(rs.getString("saname"));
+                resultArea.append("\n");
+                resultArea.append("성별 : ");
+                resultArea.append(rs.getString("sasex"));
+                resultArea.append("\n");
+                resultArea.append("급여 : ");
+                resultArea.append(String.valueOf(rs.getInt("sapay")));
+                resultArea.append("\n");
+                resultArea.append("부서번호 : ");
+                resultArea.append(String.valueOf(rs.getInt("deptno")));
+                resultArea.append("\n");
+                resultArea.append("직책 : ");
+                resultArea.append(rs.getString("sajob"));
+                resultArea.append("\n");
+                resultArea.append("고용일자 : ");
+                resultArea.append(rs.getString("sahire"));
+                resultArea.append("\n");
+                resultArea.append("매니저번호 : ");
+                resultArea.append(String.valueOf(rs.getInt("samgr")));
+                resultArea.append("\n");
+                resultArea.append("=========================================\n");
+                
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     public void addText(){
         try {
             //sabun, saname, sasex, sapay, deptno, sajob, sahire, samgr
@@ -328,5 +441,7 @@ public class procedure1 extends javax.swing.JFrame {
     private javax.swing.JTextField sanameField;
     private javax.swing.JTextField sapayField;
     private javax.swing.JTextField sasexField;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 }
