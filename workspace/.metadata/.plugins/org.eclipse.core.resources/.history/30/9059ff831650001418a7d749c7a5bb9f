@@ -1,0 +1,17 @@
+package kr.or.kosta.and1010;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Spinner;
+
+public class Ex1_Spinner extends Activity{
+	private Spinner sp;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		setContentView(R.layout.ex1_spinner);
+		sp = findViewById(R.id.ex1_sp);
+		
+	}
+
+}

@@ -1,0 +1,20 @@
+package kr.or.kosta.and1010;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class Ex7_Res extends Activity {
+	private Button btn1;
+	private TextView text1;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex7_res);
+		
+		btn1 = (Button) findViewById(R.id.ex7_btn);
+		text1 = (TextView) findViewById(R.id.ex7_resv);
+	}
+}

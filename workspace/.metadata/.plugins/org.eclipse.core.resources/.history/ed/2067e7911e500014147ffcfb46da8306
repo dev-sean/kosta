@@ -1,0 +1,24 @@
+package kr.or.kosta.and1010;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+public class Ex2_Spinner extends Activity {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex1_sp);
+		Spinner spin = (Spinner) findViewById(R.id.ex1_select1);
+		spin.setOnItemSelectedListener(this);
+		
+		ArrayAdapter<String> aa = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Items);
+		
+		aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spin.setAdapter(aa);
+		
+		
+	}
+}

@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content" >
-
+		<!-- @ - R.java의 주소를 의미  -->
         <Button
             android:id="@+id/hBtn"
             style="?android:attr/buttonStyleSmall"

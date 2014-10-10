@@ -1,0 +1,25 @@
+package kr.or.kosta.game_exam;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class GG extends Activity{
+	private OddGame og;
+	private Button hBtn, jBtn, endBtn;
+	private TextView 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.game_layout);
+		og = new OddGame();
+		hBtn = (Button) findViewById(R.id.hBtn);
+		jBtn = (Button) findViewById(R.id.jBtn);
+		endBtn = (Button) findViewById(R.id.endBtn);
+		
+		
+	}
+
+}
