@@ -31,7 +31,8 @@ class ServerThread {
         this.server = server;
 
         try {
-            pw = new PrintWriter(new BufferedOutputStream(socket.getOutputStream()), true);
+            pw = new PrintWriter(new BufferedOutputStream
+                                       (socket.getOutputStream()), true);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -43,7 +44,8 @@ class ServerThread {
             public void run() {
                 try {
                     //소켓 하나당 스트림이 연결
-                    in = new BufferedReader(new InputStreamReader(ServerThread.this.socket.getInputStream()));
+                    in = new BufferedReader(new InputStreamReader
+                            (ServerThread.this.socket.getInputStream()));
                     while(true){
                         //소켓으로부터 입력을 받기 위해 대기하는 메서드
                         String msg = in.readLine();

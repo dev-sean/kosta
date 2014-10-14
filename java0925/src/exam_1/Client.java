@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package exam;
+package exam_1;
 
 import java.awt.CardLayout;
 import java.awt.Color;

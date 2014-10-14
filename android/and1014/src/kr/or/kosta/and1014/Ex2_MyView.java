@@ -1,0 +1,48 @@
+package kr.or.kosta.and1014;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+
+public class Ex2_MyView extends View {
+	private Paint textP; //캔버스에 글자를 표시
+	private int sec; // 초
+	private int min;
+	private int msec;
+	public Ex2_MyView(Context context) {
+		super(context);
+		textP = new Paint();
+		textP.setTextSize(30);
+		textP.setColor(Color.RED);
+		textP.setAntiAlias(true);
+		handler.sendEmptyMessageDelayed(0, 1);
+	}
+	//화면을 그려주는 메서드 
+	@Override
+	protected void onDraw(Canvas canvas) {
+		canvas.drawText("Time : "+min+":"+sec+":"+msec, 0, 60, textP);
+		
+	}
+	//분 : 초 : 밀리초
+	Handler handler = new Handler(){
+
+		@Override
+		public void handleMessage(Message msg) {
+			msec += 1;
+			if(msec == 100){
+				msec = 0;
+				sec += 1;
+			}
+			if(sec == 60){
+				sec = 0;
+				min += 1;
+			}
+			invalidate(); // canvas를 갱신하기 위해서 호출! reapint()
+			handler.sendEmptyMessageDelayed(0, 1);
+		}	
+	};
+}

@@ -1,5 +1,5 @@
 
-package exam;
+package exam_1;
 
 import java.io.IOException;
 import java.net.ServerSocket;

@@ -1,5 +1,5 @@
 
-package ex1;
+package ex1_2;
 
 
 import java.io.BufferedReader;
