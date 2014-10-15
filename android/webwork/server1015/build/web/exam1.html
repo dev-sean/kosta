@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div{
+                width : 450px;
+                height : 300px;
+                border : 1px solid blueviolet;
+                margin : auto;
+                text-align: center;
+                margin-top: 100px;
+                background: antiquewhite;
+            }
+            ul li{
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form method="post" action="boardin.jsp">
+                <ul>
+                    <li>제목 : <input type="text" name="title"></li>
+                    <li>내용 : <input type="text" name="content"></li>
+                    <li>나이 : <input type="text" name="age"></li>
+                    <li>작성자 : <input type="text" name="user"></li>
+                    <li>비밀번호 : <input type="text" name="pwd"></li>
+                    <li>성별 : <input type="radio" name="sex" value="M">M
+                        <input type="radio" name="sex" value="F">F</li>
+                    <li><input type="submit" value="전송"></li>
+                </ul>
+            </form>           
+        </div> 
+
+    </body>
+</html>
