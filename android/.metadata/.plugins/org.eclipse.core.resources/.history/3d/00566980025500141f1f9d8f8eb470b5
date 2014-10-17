@@ -1,0 +1,23 @@
+package kr.or.kosta.and1016;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.StrictMode;
+
+public class Ex3_Json extends Activity {
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex3_jsondata);
+		// 퍼미션 StrictMode
+		// android.os.Build.VERSION.SDK_INT 기기 버전 정보
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+					.permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
+	}
+}

@@ -1,0 +1,32 @@
+package kr.or.kosta.and1016;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class Ex2_PostLogin extends Activity{
+	private EditText idtext, pwdtext;
+	private Button btn1;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex2_post);
+		
+		idtext = (EditText) findViewById(R.id.ex2_idtext);
+		pwdtext = (EditText) findViewById(R.id.ex2_pwdtext);
+		btn1 = (Button) findViewById(R.id.ex2_btn1);
+		
+		btn1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+	}
+}

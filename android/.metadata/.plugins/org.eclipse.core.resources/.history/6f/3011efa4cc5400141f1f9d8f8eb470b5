@@ -1,0 +1,13 @@
+package kr.or.kosta.and1016;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class Ex1_GetToday extends Activity{
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex1_http);
+	}
+}

@@ -1,0 +1,33 @@
+package kr.or.kosta.and1015;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ProgressBar;
+
+public class Ex1_Progress extends Activity {
+	private Button btn1;
+	private ProgressDialog progressBar;//프로그레스바 객체 선언
+	private int progressBarStatus = 0; // 프로그레스바의 상태값 초기화
+	private Handler progressBarHandler;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex1_handler);
+		btn1 = (Button) findViewById(R.id.ex1_btn);
+		
+		btn1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+	}
+}

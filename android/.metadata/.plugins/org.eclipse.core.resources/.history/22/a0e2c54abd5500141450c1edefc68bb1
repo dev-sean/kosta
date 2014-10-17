@@ -1,0 +1,25 @@
+package kr.or.kosta.and1017;
+
+import java.net.Socket;
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.view.View;
+
+public class InnerCanvas extends View {
+	private Path path;
+	private Paint paint;
+	private ArrayList<Path> pathList;
+	private ArrayList<Paint> paintList;
+	private int color, weight;
+	private String motion;
+	private int color_s, size_s;
+	
+	public InnerCanvas(Context context, Socket s) {
+		super(context);
+		
+	}
+	
+}

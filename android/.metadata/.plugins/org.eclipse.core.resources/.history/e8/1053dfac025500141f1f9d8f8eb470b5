@@ -1,0 +1,45 @@
+package kr.or.kosta.and1016;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ListView;
+
+public class Ex3_Json extends Activity {
+	private Button btn1;
+	private ListView listv;
+	@SuppressLint("NewApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex3_jsondata);
+		// 퍼미션 StrictMode
+		// android.os.Build.VERSION.SDK_INT 기기 버전 정보
+		if (android.os.Build.VERSION.SDK_INT > 9) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+					.permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
+		btn1 = (Button) findViewById(R.id.ex3_btn);
+		listv = (ListView) findViewById(R.id.ex3_listview);
+		btn1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				searchData();
+				
+			}
+		});
+		
+		
+	}
+	protected void searchData() {
+		
+		
+	}
+}

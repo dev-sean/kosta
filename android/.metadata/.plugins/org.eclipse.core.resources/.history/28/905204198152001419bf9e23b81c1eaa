@@ -1,0 +1,28 @@
+package kr.or.kosta.and1013;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ListView;
+
+public class Ex2_ListView extends Activity{
+	private ListView listv;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex2_listview);
+		listv = (ListView) findViewById(R.id.ex2_list);
+		//들어갈 데이터
+		ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String,String>>();
+		HashMap<String, String> map;
+		map = new HashMap<String, String>();
+		map.put("MemberID","YMan");
+		map.put("Name", "HaHa");
+		map.put("Tel", "010-1010-2932");
+		mylist.add(map);
+	}
+}

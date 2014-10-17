@@ -1,0 +1,23 @@
+package kr.or.kosta.and1013;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class Ex1_ListView extends Activity{
+	private ListView listv;
+	private String[] cars = {"SM3", "SM5", "SM7", "SONATA", "AVANTE"};
+	private ArrayAdapter<String> aa;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex1_listview);
+		
+		listv = (ListView) findViewById(R.id.ex1_list);
+		
+		
+	}
+
+}

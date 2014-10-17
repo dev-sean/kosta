@@ -1,0 +1,54 @@
+package kr.or.kosta.and1017;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class Ex1_AsyncTask extends Activity{
+	private TextView text;
+	private Button btn1,btn2,btn3;
+	private LinearLayout ll;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex1);
+		
+		text = (TextView) findViewById(R.id.ex1_text1);
+		btn1 = (Button) findViewById(R.id.ex1_btn1);
+		btn2 = (Button) findViewById(R.id.ex1_btn2);
+		btn3 = (Button) findViewById(R.id.ex1_btn3);
+		
+		btn1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+		
+		btn2.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+		
+		btn3.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+	}
+
+}

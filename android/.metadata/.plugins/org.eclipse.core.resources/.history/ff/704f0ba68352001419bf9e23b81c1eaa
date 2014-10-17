@@ -1,0 +1,15 @@
+package kr.or.kosta.and1013;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class Ex2_Result extends Activity {
+	private TextView text_id, text_name, text_tel;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex2_result);
+	}
+}

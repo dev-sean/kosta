@@ -1,0 +1,16 @@
+package kr.or.kosta.and1013;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ImageButton;
+
+public class Ex4_Dialog extends Activity{
+	private ImageButton ib;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex4_dialog);
+		ib = (ImageButton) findViewById(R.id.ex4_imgBtn);
+	}
+}

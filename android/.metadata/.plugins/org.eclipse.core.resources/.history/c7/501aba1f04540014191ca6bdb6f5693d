@@ -1,0 +1,67 @@
+package kr.or.kosta.and1015;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ProgressBar;
+
+public class Ex1_Progress extends Activity {
+	private Button btn1;
+	private ProgressDialog progressBar;//프로그레스바 객체 선언
+	private int progressBarStatus; // 프로그레스바의 상태값 초기화
+	private Handler progressBarHandler;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex1_handler);
+		btn1 = (Button) findViewById(R.id.ex1_btn);
+		//핸들러 객체를 생성
+		progressBarHandler = new Handler();
+		//버튼을 클릭했을 때 프로그레스바를 생성시켜서 동작을 시킨다.
+		btn1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//프로그레스바를 생성
+				progressBar = new ProgressDialog(v.getContext());
+				progressBar.setCancelable(true);
+				progressBar.setMessage("Loading");
+				progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+				progressBar.setProgress(0); // 초기값
+				progressBar.setMax(100); //종료값
+				progressBar.show();
+				progressBarStatus = 0;
+				new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						
+						
+					}
+				}).start();
+			}
+		});
+			
+	}
+	//프로그레스바를 즈가 시켜주는 일을 하는 메서드 - 스래드가 접근해서 호출
+	public int doSomeTask(){
+		//프로그레스바의 상태값 증가
+		progressBarStatus++;
+		//프로그레스 값의 MAX보다 적을 때만,
+		if(progressBarStatus<100){
+			return progressBarStatus;
+		}
+		try {
+			Thread.sleep(1000);
+			progressBar.dismiss();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

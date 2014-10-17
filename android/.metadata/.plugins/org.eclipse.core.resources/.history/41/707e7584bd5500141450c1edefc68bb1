@@ -1,0 +1,36 @@
+package kr.or.kosta.and1017;
+
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.os.Handler;
+import android.view.View;
+
+public class InnerCanvas extends View {
+	private Path path;
+	private Paint paint;
+	private ArrayList<Path> pathList;
+	private ArrayList<Paint> paintList;
+	private int color, weight;
+	private String motion;
+	private int color_s, size_s;
+	private BufferedReader br;
+	private PrintWriter pw;
+	private Socket s;
+	private float x,y;
+	private Handler networkHandler = new Handler();
+	
+	//네트워크 프로토콜
+	private String proto1,proto2,proto3,proto4,proto5,proto6,proto7,proto8;
+	
+	public InnerCanvas(Context context, Socket s) {
+		super(context);
+		
+	}
+	
+}

@@ -1,0 +1,71 @@
+package kr.or.kosta.and1014;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class Ex1_Thread extends Activity {
+	private TextView text1, text2, text3;
+	private Button btn1;
+	private int fnum, bnum; // 버튼이 클릭 될 때마다 증가될 수
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex1_thread);
+		// text1 = (TextView) findViewById(R.id.ex1_text1);
+		text2 = (TextView) findViewById(R.id.ex1_text2);
+		text3 = (TextView) findViewById(R.id.ex1_text3);
+		btn1 = (Button) findViewById(R.id.ex1_btn);
+
+		btn1.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				text2.setText("For : " + ++fnum);
+				//text3.setText("Back : " + ++bnum);
+				
+
+			}
+		});
+//		MyThread mt = new MyThread();
+//		mt.setDaemon(true); //부모(메인)가 종료될 때 안정적으로 쓰레드도 종료된다.
+//		mt.start();
+
+	}
+
+	// 내부 클래스 정의
+	public class MyThread extends Thread {
+
+		@Override
+		public void run() {
+			while(true){
+				//Thread 안에서는 UI를 직접 호출 할 수 없다.
+				try {
+					Thread.sleep(1000);
+					bnum++;
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	//Handler 생성
+	Handler handler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			if(msg.what == 0){
+				bnum++;
+				text2.setText("Back : " + bnum);
+			}
+		};
+		
+	};
+}

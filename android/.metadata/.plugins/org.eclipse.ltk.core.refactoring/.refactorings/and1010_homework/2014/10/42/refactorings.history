@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;kr.or.kosta.and1010_homework.Homework_res&apos; to &apos;Homework_Res&apos;&#x0D;&#x0A;- Original project: &apos;and1010_homework&apos;&#x0D;&#x0A;- Original element: &apos;kr.or.kosta.and1010_homework.Homework_res&apos;&#x0D;&#x0A;- Renamed element: &apos;kr.or.kosta.and1010_homework.Homework_Res&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Homework_res&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;kr.or.kosta.and1010_homework{Homework_res.java[Homework_res" matchStrategy="1" name="Homework_Res" qualified="false" references="true" similarDeclarations="false" stamp="1413156366278" textual="false" version="1.0"/>
+</session>

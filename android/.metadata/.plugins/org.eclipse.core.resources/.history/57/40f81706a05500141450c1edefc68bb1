@@ -1,0 +1,78 @@
+package kr.or.kosta.and1017;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class Ex1_AsyncTask extends Activity{
+	private TextView text;
+	private Button btn1,btn2,btn3;
+	private LinearLayout ll;
+	private int i;
+	private String[] mStringArray = {"w","a","t","c","h"};
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.ex1);
+		
+		text = (TextView) findViewById(R.id.ex1_text1);
+		btn1 = (Button) findViewById(R.id.ex1_btn1);
+		btn2 = (Button) findViewById(R.id.ex1_btn2);
+		btn3 = (Button) findViewById(R.id.ex1_btn3);
+		
+		OnClickListener myOnClick = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				switch(v.getId()){
+				case R.id.ex1_btn1:
+					//AsysncTask를 시작해야함
+					
+					
+					break;
+				case R.id.ex1_btn2:
+					//AsyncTask를 종료
+					
+					
+					break;
+				case R.id.ex1_btn3:
+					text.setText("");
+					break;
+				}
+			}
+		};
+		
+		btn1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+		
+		btn2.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+		
+		btn3.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+	}
+
+}

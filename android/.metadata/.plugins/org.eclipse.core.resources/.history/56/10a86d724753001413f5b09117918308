@@ -1,0 +1,19 @@
+package kr.or.kosta.and1014;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
+
+public class Ex2_MyView extends View {
+	private Paint textP; //캔버스에 글자를 표시
+	private int sec; // 초
+	public Ex2_MyView(Context context) {
+		super(context);
+		textP = new Paint();
+		textP.setTextSize(30);
+		textP.setColor(Color.RED);
+		textP.setAntiAlias(true);
+	}
+
+}
