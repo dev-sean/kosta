@@ -32,7 +32,7 @@ public class InnerCanvas extends View {
 	private BufferedReader in;
 	private PrintWriter out;
 	private Socket s;
-	private float x,y;
+	private float x, y;
 	private Handler networkHandler = new Handler();
 	// 네트워크
 	private String proto1, proto2, proto3, proto4, proto5, proto6, proto7,
@@ -47,8 +47,8 @@ public class InnerCanvas extends View {
 		try {
 			out = new PrintWriter(
 					new BufferedOutputStream(s.getOutputStream()), true);
-			in = new BufferedReader(new InputStreamReader(s
-					.getInputStream(), "UTF-8"));
+			in = new BufferedReader(new InputStreamReader(s.getInputStream(),
+					"UTF-8"));
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -81,38 +81,37 @@ public class InnerCanvas extends View {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
-		
-			StringBuffer sb = new StringBuffer();
+		StringBuffer sb = new StringBuffer();
 
-			// 터치 시에 X와 Y값을 얻어와서 저장한다
-			float x = event.getX();
-			float y = event.getY();
+		// 터치 시에 X와 Y값을 얻어와서 저장한다
+		float x = event.getX();
+		float y = event.getY();
 
-			// Action이 있을 때
-			if (event.getAction() == MotionEvent.ACTION_DOWN) {
-				motion = "start";
-			} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-				motion = "drag";
-			}
+		// Action이 있을 때
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+			motion = "start";
+		} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+			motion = "drag";
+		}
 
-			sb.append("room/draw/").append(color_s).append("/");
-			sb.append(x).append("/").append(y).append("/");
-			sb.append(motion).append("/").append(size_s).append("/")
-					.append("writer");
+		sb.append("room/draw/").append(color_s).append("/");
+		sb.append(x).append("/").append(y).append("/");
+		sb.append(motion).append("/").append(size_s).append("/")
+				.append("writer");
 
-			out.println(sb.toString());
-		
+		out.println(sb.toString());
+
 		// invalidate();
 		return true;
 	}
 
-	Thread t =new Thread(new Runnable() {
+	Thread t = new Thread(new Runnable() {
 		// 스트림을 통해서 받아온 프로토콜을 받아냄
 
 		@Override
 		public void run() {
 			try {
-			
+
 				while (true) {
 
 					String protocol = in.readLine();
@@ -137,8 +136,7 @@ public class InnerCanvas extends View {
 
 						@Override
 						public void run() {
-							if (proto1.equals("room")
-									&& proto2.equals("draw")) {
+							if (proto1.equals("room") && proto2.equals("draw")) {
 								// ---------
 
 								Log.d("Msg", proto1);
@@ -166,12 +164,12 @@ public class InnerCanvas extends View {
 								} else if (proto7.equals("30")) {
 									weight = 30;
 								}
-           						x = Float.parseFloat(proto4);
-								y = Float.parseFloat(proto5);	
+								x = Float.parseFloat(proto4);
+								y = Float.parseFloat(proto5);
 								if (proto6.equals("start")) {
-									path.moveTo(x,y);	
+									path.moveTo(x, y);
 								} else if (proto6.equals("drag")) {
-									path.lineTo(x,y);
+									path.lineTo(x, y);
 								}
 								invalidate();
 								// ---------
@@ -186,8 +184,7 @@ public class InnerCanvas extends View {
 			}
 		}
 	});
-	
-	
+
 	// add - ArrayList에 Path, Paint가 생성되어서 기억
 	public void add() {
 		pathList.add(new Path());
@@ -196,6 +193,5 @@ public class InnerCanvas extends View {
 		paintList.add(new Paint());
 		paint = paintList.get(paintList.size() - 1);
 	}
-
 
 }

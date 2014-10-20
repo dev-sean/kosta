@@ -104,8 +104,8 @@ public class New_SemiMock extends Activity {
 
 		// View생성
 		view = new InnerCanvas(this, s);
-		//동적으로 컨테이너에게 위젯, 컴포넌트를 배치
-		//캔버스를 레이아웃에 배치할수 있다.
+		// 동적으로 컨테이너에게 위젯, 컴포넌트를 배치
+		// 캔버스를 레이아웃에 배치할수 있다.
 		ly.addView(view);
 
 		// readLine Thead로 돌리기
@@ -120,11 +120,11 @@ public class New_SemiMock extends Activity {
 				try {
 					out = new PrintWriter(new BufferedOutputStream(s
 							.getOutputStream()), true);
-					//채팅 프로토콜을 완성
+					// 채팅 프로토콜을 완성
 					// room/chat/all/me/msg/1/none/none
-					//예) 필요에 따라서 프로토콜을 설계!!
+					// 예) 필요에 따라서 프로토콜을 설계!!
 					// root/chat/user1/me/meg/2/icon/none
-					//root/file/file/none/none/none/none/noe
+					// root/file/file/none/none/none/none/noe
 					StringBuilder sb = new StringBuilder();
 					sb.append("room/chat/all/miso/");
 					sb.append(edit.getText()).append("/1/none/none");
