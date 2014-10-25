@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Users\Soo\Desktop\Wooriyo\wooriyo_and\.metadata\.plugins\org.eclipse.jdt.core
+2588277215.index
+1925810095.index
+3838061908.index

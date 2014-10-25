@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dialogtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="결제페이지"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	<Button
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:layout_margin="5dp"
+	    android:onClick="mOnClick"
+	    android:text="카드정보 입력" />
+
+    <TextView
+        android:id="@+id/text4_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:textColor="#FF000000"
+        android:textSize="20sp" />
+
+</LinearLayout>
