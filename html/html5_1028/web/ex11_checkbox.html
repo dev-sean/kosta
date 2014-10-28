@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+
+                $('#selectBtn').click(function () {
+                    var checkedList = "";
+                    var checkedConsole = "";
+
+                    //input의 name이 hobby 중에서 checkbox에 check가 된 요소
+                    $("input[name='hobby']:checkbox:checked").each(
+                            function () {
+                                //선택자의 이전 선택자 : prev(), next()                       
+                                checkedList += $(this).prev().text() + "\t";
+                                //input의 value값을 가져오는 함수 : val()
+                                checkedConsole += $(this).val() + "\t";
+                            });
+                    $('#contents').html(checkedList);
+                    console.log(checkedConsole);
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <span class="item">음악감상</span>
+            <input type="checkbox" name="hobby" value="music">
+        </div>
+        <div>
+            <span class="item">영화보기</span>
+            <input type="checkbox" name="hobby" value="movie">
+        </div>
+        <div>
+            <span class="item">수영</span>
+            <input type="checkbox" name="hobby" value="swim">
+        </div>
+        <div>
+            <span class="item">숨쉬기</span>
+            <input type="checkbox" name="hobby" value="breath">
+        </div>
+        <div>
+            <input type="button" id="selectBtn" value="취미 선택">
+        </div>
+        <div id="contents">Result!</div>
+    </body>
+</html>

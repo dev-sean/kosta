@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>datalist 연습</legend>
+                <label for="ss">Homepage</label>
+                <input type="url" id="ss" list="s_data" required>
+                <datalist id="s_data">
+                    <option value="http://www.naver.com" label="네이버"></option>
+                    <option value="http://www.daum.com" label="다음"></option>
+                    <option value="http://www.tistory.com" label="티스토리"></option>
+                </datalist>
+                <p><button type="submit">SEND</button></p>
+            </fieldset>
+            
+        </form>
+    </body>
+</html>

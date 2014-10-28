@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+
+            //Dom만 기다리다가 실행됨
+            $(document).ready(function () {
+                //Element, id, class로 선택자를 사용할 수 있다.
+                //css('스타일','값') - Chaining 방식!
+                //$('Element') -> 3개, 집합요소(NodeList)
+                $('div').css('width', '300').css('height', '100').css('background', 'red').css('marginTop', '30');
+                //chaing방식은 css방식뿐 아니라 다른 메서드를 사용할 경우에 사용하는 것이고
+                //map방식은 어떠한 메서드를 가독성이 뛰어나게 할때 사용
+                $('#p1').css({'color': 'red', 'fontSize': '30pt', 'width': '600px', 'border': '1px solid pink'});
+
+                $('.c1').css('color','blue').css('fontSize','50pt').css('border','1px solid black');
+                
+                //$('.c1')
+                //$(s1,s3....) 선택자를 나열한 집합요소
+                $('div,span').text('YYYYYYYYYYY');
+            });
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <div>TODO write content</div>
+        <div>TODO write content</div>
+        <p id="p1">TODO write content</p>
+        <span class="c1">TODO write</span>
+        <p class="c1">TODO write content</p>
+    </body>
+</html>

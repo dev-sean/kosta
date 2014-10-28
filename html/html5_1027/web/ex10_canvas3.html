@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #can1{
+                border:2px dotted black;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var can = document.getElementById("can1");
+                var ctx = can.getContext("2d");
+                if(ctx){
+                    ctx.strokeStlye = "blue";
+                    ctx.fillStyle = "red";
+                    ctx.lineWidth = 10;
+                    ctx.save(); //설정값을 저장
+                    ctx.fillRect(25,25,100,125);
+                    ctx.strokeRect(25,25,100,125);
+                    ctx.strokeStyle = "red";
+                    ctx.fillStyle = "blue";
+                    ctx.fillRect(165,25,100,125);
+                    ctx.strokeRect(165,25,100,125);
+                    
+                    ctx.restore();//저장된 설정을 불러오기
+                    ctx.fillRect(295,25,100,125);
+                    ctx.strokeRect(295,25,100,125);
+                    
+                }
+            }
+        </script>
+    </head>
+    <body>
+         <canvas id="can1" width="400" height="300">
+            캔버스를 지원하지 않습니다.
+        </canvas>
+    </body>
+</html>

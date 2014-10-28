@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                //후손(E F) 조상이 P요소에서 후손 em요소를 찾아서 콘솔에 갯수를 출력
+                //자식요소(E > F)
+                $('p em').css('backgroundColor', 'yellow').each(function () {
+                    $('.result1').append($(this).text() + "\n");
+                });
+                //DIV를 자식요소로 검색해서 배경색을 핑크, 위와 같이 출력 후 
+                //콘솔에도 출력해보세요.
+                console.log("P의 후손 em 요소 갯수 :" + $('p em').length);
+                //이곳에 자식요소의 결과를 result2에 append하세요
+                $('p > em').css('backgroundColor', 'pink').each(function () {
+                    $('.result2').append($(this).text() + "\n");
+                });
+                console.log("P의 후손 em 요소 갯수 :" + $('p>em').length);
+                
+                
+            });
+
+        </script>
+    </head>
+    <body>
+        <p>
+            <em>one</em><em>two</em>
+            <span><em>three</em></span>
+        </p>
+        <div>
+            <em>four</em><span><em>five</em></span><em>six</em>
+        </div>
+        <hr>
+        <div><span>후손요소로 검색된 엘리멘트 (A B) :</span>
+            <span class="result1"></span>
+        </div>
+        <div>
+            <span>자식 요소로 검색된 엘리멘트(A>B) : </span>
+            <span class="result2"></span>
+        </div>
+    </body>
+</html>

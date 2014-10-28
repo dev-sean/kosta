@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function test2(obj){
+                
+                var oper = obj.value;
+                var num1 = document.getElementById("num1").value;
+                var num2 = document.getElementById("num2").value;
+                var result;
+                var color;
+                console.log(num1);
+                console.log(num2);
+                if(oper === '+'){
+                    result = (num1*1)+(num2*1);
+                    color='green';
+                    console.log(result);
+                }else if(oper ==='-'){
+                    result = num1-num2;
+                    color='red';
+                    console.log(result);
+                }else if(oper === '*'){
+                    result = num1*num2;
+                    color='yellow';
+                    console.log(result);
+                }else{
+                    result = num1/num2;
+                    color='pink';
+                    console.log(result);
+                }
+                document.getElementById("res").innerHTML=result;
+                document.getElementById("res").style.background=color;
+            }
+        </script>
+    </head>
+    <body>
+        <!--더할때 배경색 - 녹색, 뺄때 - 빨강색-->
+        <input type="text" name="num1" id="num1">
+        <input type="text" name="num2" id="num2">
+        <select id="resv" name="resv" onchange="test2(this)">
+            <option value="">선택</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+                
+            
+        </select>
+        <div id="res"></div>
+    </body>
+</html>

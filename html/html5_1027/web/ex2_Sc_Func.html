@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            //주석
+            /* 주석 */
+            var num=10; //전역변수
+            function test(){
+                var n=20; //지역변수
+                n = num+n;
+                console.log(n);
+                //DOM객체에 아이디로 찾아서 접근해라.
+                //속성에서 아이디는 유일해야 한다.
+                //dom.innerHTML = 값
+                // 블록레벨요소처럼 값을 표현할 Element에게
+                //html를 적용시켜라.
+                document.getElementById("res").innerHTML=n;
+                //스타일을 변경해보고 싶다.
+                document.getElementById("res").style.background='red';
+            }
+            
+        </script>
+    </head>
+    <body>
+        <div id="res"></div>
+        <input type="button" value=Click onclick="test()">
+    </body>
+</html>

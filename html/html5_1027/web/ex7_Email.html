@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            //window.onload -> 브라우저 시작시에 모든 자원(image,video.dom...)을 다 읽고 난 뒤에 발생하는 이벤트
+            // =function(){}
+            //익명함수 표현식 ";", 변수에 저장될 수 있다.
+            window.onload=function(){test();};
+            var n = 0;
+            var array = ["red", "blue", "pink", "yellow", "green"];
+            function test(){
+                //setInterval(function, 지연시간);  1초씩 function 함수를 호출해라
+                var inter = setInterval(function(){
+                    document.getElementById("res").style.background=array[n];
+                    if(n === array.length-1) n=0;
+                    document.getElementById("res").innerHTML= ++n;
+                    
+                },1000);
+            }
+            </script>
+            <style>
+                div{
+                    height:400px;
+                    width:300px;
+                    margin:auto;
+                }
+                
+            </style>
+    </head>
+    <body>
+        
+        
+        <form oninput="res.value=document.getElementById('out').value">
+            <fieldset>
+                <label for="email">email</label>
+                <input type="email" name="email" id="email" placeholder="이메일입력" required="required"/>
+                <p><button type="submit">SEND</button></p>
+                
+                <label for ="out">output</label>
+                <input type="range" name="out" id="out" min="0" max="100" step="10" value="30"/>
+                <output name="res">30</output>
+                
+            </fieldset>
+            
+        </form>
+        
+        <div id="res">
+            
+        </div>
+    </body>
+</html>

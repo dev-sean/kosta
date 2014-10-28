@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function test() {
+                var can = document.getElementById("can1");
+
+                var widt = document.getElementById("w1").value;
+
+                var heit = document.getElementById("h1").value;
+
+                can.width = widt;
+                can.height = heit;
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="can1" width="300" height="300">
+            캔버스를 지원하지 않습니다.
+        </canvas>
+        Width : <input type="number" id="w1" max="100">
+        Height : <input type="number" id="h1" max="100">
+        <button onclick="test()">Click</button>
+    </body>
+</html>

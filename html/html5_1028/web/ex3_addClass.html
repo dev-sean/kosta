@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            .simpletext1{background-color:#ff0}
+            .redtext{color:red}
+            .largtext{font-size:30pt}
+            .spotlight{color:blue}
+            .it{font-style:italic}
+        </style>
+        <script>
+            $(document).ready(function(){
+                $('span').addClass('redtext');
+                $('div').addClass('spotlight');
+                $('#simpletext1').addClass('largetext');
+                $('.simpletext1').addClass('it');
+                $('#simpletext2').text("MyTest");//문자를 추가, text();
+                console.log($('#simpletext2').text());
+            });
+        </script>
+    </head>
+    <body>
+        <span id="simpletext1">Simple</span>
+        <div class="simpletext1">jQuery</div>
+        <span id="simpletext2">Basic</span>
+        <div id="simpletext3">jQuery</div>
+    </body>
+</html>

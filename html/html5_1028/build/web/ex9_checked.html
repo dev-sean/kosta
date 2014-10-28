@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                $('input:not(:checked) + span').css('background','yellow');
+                //$(선택자).is(':checked'); 일때 true를 발생
+                console.log("Check is() :" + $('#f2').is(':checked'));
+            });
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <input type="checkbox" name="fruit" id="f1">
+            <span>사과</span>
+        </div>
+        <div>
+            <input type="checkbox" name="fruit">
+            <span>바나나</span>
+        </div>
+        <div>
+            <input type="checkbox" name="fruit" id="f2" checked="checked">
+            <span>오렌지</span>
+        </div>
+    </body>
+</html>

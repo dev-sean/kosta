@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #wrap {
+                width:500px;
+                height:200px;
+                margin:auto;
+                border: 1px solid red;
+            }
+        </style>
+        <script>
+            function test() {
+                var col = document.getElementById("cc").value;
+                document.getElementById("wrap").style.background = col;
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="wrap">
+            <form>
+                <fieldset>
+                    <label>Color</label>
+                    <input type="color" name="cc" id="cc">
+                    <p>
+                        <button type="button" onclick="test()">
+                            Send
+                        </button>
+                    </p>
+                </fieldset>
+
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            window.onload = function () {
+                //1) 캔버스 얻기
+                var can = document.getElementById("can1");
+                //2) 2D그림을 그릴 객체 구하기
+                var ctx = can.getContext("2d");
+                if (ctx) {
+                    //3) 원하는 그리기 수행
+                    ctx.fillStyle = "green"; //색상 지정
+                    ctx.fillRect(10, 25, 100, 100);//x,y,w,h
+                }
+            };
+            //랜덤으로 색깔 바꾸기
+
+            function test() {
+                var can = document.getElementById("can1");
+                //2) 2D그림을 그릴 객체 구하기
+                var ctx = can.getContext("2d");
+                var coR = Math.floor(Math.random() * 256);
+                var coG = Math.floor(Math.random() * 256);
+                var coB = Math.floor(Math.random() * 256);
+
+                ctx.lineWidth = 5;
+                
+                ctx.strokeStyle = "rgba("+coR+"," +coG+"," +coB+ ","+"5)";
+         
+                //그리고자 하는 속성설정을
+                //마쳤으니 그리기 API함수 호출
+                ctx.strokeRect(5, 20, 110, 110);
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="can1" width="400" height="300">
+            캔버스를 지원하지 않습니다.
+        </canvas>
+        <button onclick="test()">Click</button>
+    </body>
+</html>

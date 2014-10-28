@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            .textstyle{
+                font-size:14pt; 
+            line-height: 20pt; 
+            margin:10px; 
+            color:blue;
+            }
+            
+        </style>
+        <script>
+
+            $(document).ready(function () {
+                //모든 엘리멘트에 .textstyle클래스를 추가
+                $('body *').addClass('textstyle');
+                //형제 노드를 의미(+)
+                var $ch = $('a + a').appendTo('.result1');
+                $ch.css('background','yellow');
+                console.log('검색된 엘리멘트 수:'+$ch.length);
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <em>one</em>
+        <a>two</a>
+        <a>three</a>
+        <b>four</b>
+        <a>five</a>
+        <em>six</em>
+        <hr>
+        <div>
+            <span>per+next로 검색된 엘리멘트</span>
+            <span class="result1"></span>
+        </div>
+    </body>
+</html>

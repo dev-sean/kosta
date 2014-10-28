@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="EUC-KR">
+        <title>Insert title here</title>
+        <style>
+            #can1{ border:1px dotted black; }
+        </style>
+        <script>
+            window.onload = function () {
+                var can =
+                        document.getElementById('can1');
+
+                var ctx = can.getContext("2d");
+                if (ctx) {
+                    ctx.strokeStyle = "blue";
+                    ctx.fillStyle = "Red";
+                    ctx.lineWidth = 5;
+
+                    ctx.beginPath();
+                    ctx.arc(
+                            150, 150, 100, Math.PI * 1.5, Math.PI * 2);
+                    //끝지점 다음 인자를 생략하면
+                    //false로 지정되어 시계방향으로
+                    //호가 그려진다.
+                    ctx.stroke();
+
+                }
+            };
+            var degrees = 0;
+            function test() {
+                var can = document.getElementById('can1');
+
+                var ctx = can.getContext("2d");
+
+
+                degrees += 10;
+                var radians = (Math.PI / 180) * degrees;
+
+                ctx.beginPath();
+                ctx.arc(480, 150, 100, 0, radians);
+                ctx.fill();
+                ctx.stroke();
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="can1" width="600" height="300">
+            캔버스를 지원하지 않습니다.
+        </canvas>
+        <button id="btn" onclick="test()">Click</button>
+    </body>
+</html>

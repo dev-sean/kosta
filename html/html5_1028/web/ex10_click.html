@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                //click 이벤트 - 요소를 클릭했을때 function()을 호출 실행
+                $('#btn').click(function(){
+                    //$('#n').val() : input의 value
+                   $('#res').html($('#n').val()) ;
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div style="width:300px; margin:auto; background:orange">
+            <input type="text" name="n" id="n">
+            <input type="button" value="click" id="btn"><br/>
+            <div id="res" style="width:100%; background: white; border:1px solid black">&nbsp;</div>
+        </div>
+    </body>
+</html>

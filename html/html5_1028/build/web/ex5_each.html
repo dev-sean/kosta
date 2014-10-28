@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+               var col=['red','green','blue'];
+               var resText = "";
+               
+               var $searchEles = $('p, span, div.simpletext1');
+               resText = "검색된 Element의 수 :"+$searchEles.length+"\n";
+               $searchEles.each(function(idx){
+                   resText += $(this).css("backgroundColor",col[idx]).text(idx);
+               });
+               console.log($.trim(resText));
+            });
+            </script>
+    </head>
+    <body>
+        <!--인라인 레벨을 블록 레벨로 바꾸는 것 -->
+        <span style="display:block; width:300px">simple</span>
+        <div class="simpletext1">My JQuery</div>
+        <div>Toast</div>
+        <p>example</p>
+    </body>
+</html>

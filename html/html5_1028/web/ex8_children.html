@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Ex1</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                var $node1 = $('div').children().css({'color':'blue','border':'1px solid black'});
+                $('span').append($node1.size());//자식노드의 수
+                //자식 노드중에서 2노드를 찾아서 스타일 적용
+                $node1.eq(1).css('background','yellow');
+            });
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <p>1. One</p>
+            <h1>2. Two</h1>
+            <h2>3. Three</h2>
+            <h3>4. Four</h3>
+            <h4>5. Five</h4>
+            <h5>6. Six</h5>
+        </div>
+        <span>자식 노드 수 : </span>
+    </body>
+</html>
