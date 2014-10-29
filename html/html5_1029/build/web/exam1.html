@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+
+            #target, #imgCnt{
+                width:550px; margin:auto;
+                text-align: center;
+            }
+            #target img{
+                margin:20px;
+                width:550px; margin:auto;
+                text-align: center;
+            }
+
+            #imgCnt ul li{
+                list-style: none;
+                float:left;
+                margin-left:5px;
+            }
+            #imgCnt ul li img{
+                width:100px;
+                cursor:pointer;
+            }
+        </style>
+        <script>
+
+            $(document).ready(function () {
+
+
+                $('#imgCnt img').bind({
+                    mouseenter:function(){
+                        $('#target img').attr('src', $(this).attr('src'));
+                    }
+                });
+                /*
+                $('#imgCnt img').mouseenter(function(){
+                    $('#target img').attr('src', $(this).attr('src'));
+                });
+                */
+            });
+
+
+
+        </script>
+    </head>
+    <body>
+
+        <div id='imgCnt'>
+            <ul>
+                <li><img src='images/sin1.jpg'></li>
+                <li><img src='images/sin2.jpg'></li>
+                <li><img src='images/sin3.jpg'></li>
+                <li><img src='images/sin4.jpg'></li>
+            </ul>
+        </div>
+
+        <div style='clear:both' id='target'>
+            <img src='images/sin4.jpg'>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            .faq{
+                padding:20px 30px 0 20px;
+            }
+            .faq h4{
+                border-top : 1px solid #ddd;
+            }
+            .faq h4 a{
+                display: inline-block;
+                padding : 15px;
+                font-size:14px;
+                color:#555;
+                text-decoration: none;
+            }
+            .faq h4 a:hover{
+                color:#3273b3;
+            }
+            .faq div{
+                padding: 0 15px 15px;
+                line-height:20px
+            }
+            .on{
+                background:orange;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                var $trigger = $('.faq > h4 > a');
+                var $content = $('.faq > div');
+                $content.hide();
+                $trigger.click(function () {
+                    var $this = $(this).parent();
+                    $trigger.parent().removeClass("on");
+                    $content.slideUp(150);
+                    if ($this.next().is(":hidden")) {
+                        $trigger.each(function (i) {
+                            $this.addClass('on');
+                            $this.next().eq(i).slideDown(150);
+                        });
+                    }
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="faq">
+            <h4><a href="#none">[1]Load Test title1</a></h4>
+            <div id="load1">
+                내용1<br/>내용2</br>내용3</br>
+                내용1<br/>내용2</br>내용3</br>
+            </div>
+            <h4><a href="#none">[2]Load Test title2</a></h4>
+            <div id="message">
+                내용1<br/>내용2</br>내용3</br>
+                내용1<br/>내용2</br>내용3</br>
+            </div>
+            <h4><a href="#none">[3]Load Test title3</a></h4>
+            <div id="message1">
+                내용1<br/>내용2</br>내용3</br>
+                내용1<br/>내용2</br>내용3</br>
+            </div>
+        </div>
+    </body>
+</html>

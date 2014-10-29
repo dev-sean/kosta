@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            .cng{
+                color:orange;
+            }
+        </style>
+        <script>
+
+            $(document).ready(function () {
+                $('h1').bind({
+                    click:function(){
+                        $(this).html(function(idx,html){
+                            return '<p>마이러브! </p>';
+                        });
+                    },
+                    mouseenter:function(){
+                        $(this).addClass('cng');
+                    },
+                    mouseleave:function(){
+                        $(this).removeClass('cng');
+                    }
+                });
+
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <h1>Hello World!</h1>
+        <h1>Hello World!</h1>
+        <div id="res"></div>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            
+        </style>
+        <script>
+            var xhr; //XMLHttpRequest 객체 - 모든 브라우저가 가지고 있는
+            function exe(obj){
+                //브라우저 판별 - jQuery에서는 기본 라이브러리로 제공!
+                if(window.ActiveXObject){//IE
+                    xhr = new ActiveXOvejct("Microsoft.XMLHTTP");
+                }else{
+                    xhr = new XMLHttpRequest();
+                }
+                //도착함수
+                xhr.onreadystatechange=res;
+                //파라미터를 설정
+                var str = obj.value;
+                var param= "v1="+str;
+                //요청할 정보를 지정
+                //요청방식, 전송경로+파라미터, 비동기식
+                xhr.open("get","Ex1_Servelt?"+param,true);
+                //헤더값 설정
+                xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                //서버를 요청 - get방식은 이미 전송경로에서 파라미터가 설정,
+                //post일 때 param인자
+                xhr.send(null);
+            }
+            
+            function res(){
+                if(xhr.readyState===4 && xhr.status ===200){
+                    var v = document.getElementById("view");
+                    //response 된 문자열을 받아서 표현
+                    v.innerHTML = xhr.responseText;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <select onchange="exe(this)">
+            <option value="">선택</option>
+            <option value="java">자바</option>
+            <option value="ms">마이크로 소프트</option>
+            
+        </select>
+        <div id="view"></div>
+    </body>
+</html>

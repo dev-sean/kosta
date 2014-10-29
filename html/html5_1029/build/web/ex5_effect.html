@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            #btn, #btn2{
+                width:200px;
+                height:50px;
+                margin:auto;
+                text-align: center;
+                background: pink;
+            }
+            #target, #target2{
+                width:200px; height:200px;
+                margin:auto;
+                background:gray;
+            }
+        </style>
+        <script>
+
+            $(document).ready(function () {
+                //toggle하면서 이벤트를 발생할 콜백함수를 설정 - 기본
+                //slideup, slidedown
+                //fadein, fadeout
+                $('#btn').toggle(function () {
+                    $(this).next().fadeOut(); //생김
+                }, function () {
+                    $(this).next().fadeIn(); //생김
+
+                });
+                $('#btn2').toggle(function () {
+                    $(this).next().fadeOut(); //생김
+                }, function () {
+                    $(this).next().fadeIn(); //생김
+                });
+
+            });
+
+
+
+        </script>
+    </head>
+    <body>
+        <div id="btn">Click</div>
+        <div id="target">^_^ 하하 나의 이벤트</div>
+        <div id="btn2">Click2</div>
+        <div id="target2">^_^ 하하 나의 이벤트</div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/httpRequest.js"></script>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            div#view{
+                width: 500px;
+                height:100px;
+                border-radius: 10px;
+                border: 1px solid black;
+            }
+            
+            .java{
+                width: 100%;
+                height: 100%;
+                background-color: lightsteelblue;
+                color: white;
+                font-size: 3em;
+            }
+            
+            .ms{
+                width: 100%;
+                height: 100%;
+                background-color: red;
+                color: yellow;
+                font-size: 3em;
+            }
+        </style>
+        <script>
+            function exe(obj){
+                var str= obj.value;
+                var param = "v1="+str;
+                sendRequest("Ex1_Servelt",param, res, "post", true);
+            }
+            function res() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var v = document.getElementById("view");
+                    //response 된 문자열을 받아서 표현
+                    v.innerHTML = xhr.responseText;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <select onchange="exe(this)">
+            <option value="">선택</option>
+            <option value="java">자바</option>
+            <option value="ms">마이크로 소프트</option>
+
+        </select>
+        <div id="view"></div>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+              $('img').attr({'border':'5px solid yellow', 'height':function(idx){
+                      if(idx===0){
+                          return 100;
+                      }else if(idx===1){
+                          return 250;
+                      }else{
+                          return 500;
+                      }
+              }});
+           
+              
+            });
+            
+        //이미지 높이를 100,250,500으로 설정
+        //border를 모두 5px
+        //attr({'':'',"height":function(idx){todo code here});
+
+        </script>
+    </head>
+    <body>
+        <img src="images/sin1.jpg"><br/>
+        <img src="images/sin2.jpg"><br/>
+        <img src="images/sin3.jpg"><br/>
+    </body>
+</html>
