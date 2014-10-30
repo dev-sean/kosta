@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+
+        </style>
+        <script>
+            $(document).ready(function () {
+                //onChange의 속성과 같음!        
+                $('#sel').change(function () {
+                    $('#res').html($(this).val());
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <select name="sel" id="sel">
+            <option value="">선택</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>            
+        </select>
+        <br/>
+        <div id="res"></div>
+    </body>
+</html>

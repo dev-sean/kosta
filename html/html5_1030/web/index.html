@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            
+        </style>
+        <script>
+            $(document).ready(function () {
+                $('.w').css({width:'100px',margin:'quto'});
+                $('#btn1').click(function(){
+                    $('#cont').addClass('wrap');
+                    //load함수를 사용해서 ex2_load_test.jsp를 가져옴
+                    $('#cont').load('ex2_load_test.jsp p');
+                });
+                $('#btn2').click(function(){
+                    $('#cont').addClass('wrap');
+                    $('#cont').load('ex2_load_test.jsp p,span');
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="w"><input type="button" value="PLoad" id="btn1"></div>
+        <div class="w"><input type="button" value="P,SpanLoad" id="btn2"></div>
+        <div id="cont"></div>
+    </body>
+</html>

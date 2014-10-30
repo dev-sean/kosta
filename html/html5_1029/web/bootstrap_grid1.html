@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            div{
+                background: #f2dede;
+                border: 1px solid black;
+            }
+            .container, .row{
+                background:white;
+                border:0px;
+            }
+        </style>
+    </head>
+    <body>
+        Example: Stacked-to-horizontal<br/>
+        div class="container" : 정해진 위치만큼 그려준다.
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">.col-md-8</div>
+                <div class="col-md-4">.col-md-4</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">.col-md-4</div>
+                <div class="col-md-4">.col-md-4</div>
+                <div class="col-md-4">.col-md-4</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">.col-md-6</div>
+                <div class="col-md-6">.col-md-6</div>
+            </div>
+        </div>
+
+        <br/><br/><br/>
+        div class="container-fluid" : 화면의 넓이를 가득 채운다.
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+                <div class="col-md-1">.col-md-1</div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">.col-md-8</div>
+                <div class="col-md-4">.col-md-4</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">.col-md-4</div>
+                <div class="col-md-4">.col-md-4</div>
+                <div class="col-md-4">.col-md-4</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">.col-md-6</div>
+                <div class="col-md-6">.col-md-6</div>
+            </div>
+        </div>
+
+
+        <br/><br/><br/>
+        Mobile and Desktop layout
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+            </div>
+
+            <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+            <div class="row">
+                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+            </div>
+
+            <!-- Columns are always 50% wide, on mobile and desktop -->
+            <div class="row">
+                <div class="col-xs-6">.col-xs-6</div>
+                <div class="col-xs-6">.col-xs-6</div>
+            </div>
+        </div>
+
+        <br/><br/><br/>
+        Column Wrapping
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-9">.col-xs-9</div>
+                <div class="col-xs-4">.col-xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+                <div class="col-xs-6">.col-xs-6<br>Subsequent columns continue along the new line.</div>
+            </div>
+        </div>
+        <br/><br/><br/>
+
+        Nesting Column
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    Level 1: .col-sm-9
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-6">
+                            Level 2: .col-xs-8 .col-sm-6
+                        </div>
+                        <div class="col-xs-4 col-sm-6">
+                            Level 2: .col-xs-4 .col-sm-6
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

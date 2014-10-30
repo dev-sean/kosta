@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            #wrap div{
+                float: left;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                $('#ggChoice').change(function () {
+                    var url = "exam_star_jsp.jsp";
+                    var params = "groupName=" + $(this).val();
+                    $.ajax({
+                        url: url,
+                        data: params,
+                        success: function (args) {
+                            $('#result > #ggChoice2').html(args);
+                        },
+                        error: function (e) {
+                            alert(e.responseText);
+                        }
+                    });
+                });
+
+
+                $('#ggChoice2').change(function () {
+                    var url = "exam_star_image.jsp";
+                    var params = "gname=" + encodeURIComponent($(this).val());
+                    console.log(params);
+                    $.ajax({
+                        url: url,
+                        data: params,
+                        success: function (args) {
+                            $('#target').attr('src',args);
+                        },
+                        error: function (e) {
+                            alert(e.responseText);
+                        }
+                    });
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrap">
+            <div>
+                <select id="ggChoice">
+                    <option>=선택=</option>
+                    <option value="1">걸스데이</option>
+                    <option value="2">티아라</option>
+                </select>
+            </div>
+            <div id="result">
+                <select id="ggChoice2">
+                    <option>=선택=</option>
+                </select>
+            </div>
+            <div id="imgTarget">
+                <img src="images/sin1.jpg" id="target" style="width:120px">
+            </div>
+        </div>
+    </body>
+</html>
