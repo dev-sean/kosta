@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>address</param-name>
+        <param-value>경기도 분당구 삼평동 유스페이스2</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Ex2_ServeltConfig</servlet-name>
+        <servlet-class>ex1.Ex2_ServeltConfig</servlet-class>
+        <init-param>
+            <param-name>admin_id</param-name>
+            <param-value>clicktop10@naver.com</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>Ex2_Other</servlet-name>
+        <servlet-class>ex1.Ex2_Other</servlet-class>
+    </servlet>
+    <servlet-mapping>       
+        <servlet-name>Ex2_ServeltConfig</servlet-name>
+        <url-pattern>/Ex2_ServeltConfig</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Ex2_Other</servlet-name>
+        <url-pattern>/Ex2_Other</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
