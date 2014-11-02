@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="EUC-KR">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            .on{
+                background:steelblue;
+                color:black;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                $('form').submit(function(){
+                    //유효성 검사
+                    if($('input[name=id]').val()==''){
+                        alert('아이디를 입력하세요!');
+                        $('input[name=id]').focus().addClass('on');
+                        return false;
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>Hello World!</h1>
+            <form method="post" action="addMem.jsp">
+                <table>
+                    <tr>
+                        <td>아이디</td>
+                        <td><input type="text" name="id" id="id">
+                            <input type="button" value="중복확인">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호</td>
+                        <td>
+                            <input type="password" name="pwd" id="pwd">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호 확인</td>
+                        <td>
+                            <input type="password" name="pwd2" id="pwd2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이름</td>
+                        <td>
+                            <input type="text" name="name" id="name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>취미 <input type="button" value="전체선택" id="allChk"></td>
+                        <td>
+                            <input type="checkbox" name="hb" class="hb" value="요리">요리
+                            <hr>
+                            <input type="checkbox" name="hb" class="hb" value="노래">노래
+                            <hr>
+                            <input type="checkbox" name="hb" class="hb" value="여행">여행
+                            <hr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="완료">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

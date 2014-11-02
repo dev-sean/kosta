@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/jsp_1031">
+
+    <Resource name="jdbc/myora"
+    auth="Container" type="javax.sql.DataSource"
+    driverClassName="oracle.jdbc.driver.OracleDriver"
+    url="jdbc:oracle:thin:@localhost:1521/pdborcl"
+    username="Bjo"
+    password="fighting"
+    maxActive="20"
+    maxIdle="10"
+    maxWait="-1"
+    />
+</Context>
