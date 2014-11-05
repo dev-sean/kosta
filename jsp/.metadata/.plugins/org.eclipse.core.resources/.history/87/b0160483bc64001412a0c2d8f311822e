@@ -1,0 +1,31 @@
+package dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import service.FactoryService;
+import vo.BBsVO;
+
+public class BBsDao {
+	private static BBsDao dao;
+
+	public static synchronized BBsDao getDao() {
+		if(dao == null) dao = new BBsDao();
+		return dao;
+	}
+	//insert 작업을 정의한 메서드
+	public void bbsAdd(BBsVO v){
+		SqlSession ss = FactoryService.getFactory().openSession();
+		ss.insert("bbs.bbs_in",v);
+		ss.commit();
+		ss.close();
+	}
+	//selectList() : select된 내용을 VO에 담아서 List로 반환해주는 메서드
+	public List<BBsVO> bbsList(){
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<BBsVO> list = ss.selectList("bbs.bbs_list");
+		ss.close();
+		return list;
+	}
+}

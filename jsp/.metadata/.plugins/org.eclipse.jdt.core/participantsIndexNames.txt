@@ -1,0 +1,11 @@
+INDEX VERSION 1.127
+C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3617132654.index
+\jsp_1105\src
+C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1279024129.index
+\jsp_1104\src
+C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3302809411.index
+\jsp_1105_mybatis\src
+C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3539491720.index
+\jsp_exam\src
+C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\950318478.index
+\jsp_1103\src

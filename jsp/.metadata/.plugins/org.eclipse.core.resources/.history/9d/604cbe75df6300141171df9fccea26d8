@@ -1,0 +1,88 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import conn.ConnUtil;
+import vo.MjoinVO;
+
+public class JoinDao {
+	private static JoinDao dao;
+
+	public synchronized static JoinDao getDao() {
+		if(dao == null){
+			dao = new JoinDao();
+		}
+		return dao;
+	}
+	public boolean addJoin(MjoinVO vo) {
+		Connection con = null;
+		PreparedStatement pstm = null;
+		StringBuffer sql = new StringBuffer();
+		boolean res = false;
+		sql.append("insert into mjoin values(mjoin_seq.nextVal,");
+		sql.append("?,?,?,?,sysdate)");
+		try {
+			con = ConnUtil.getDs();
+			pstm = con.prepareStatement(sql.toString());
+			pstm.setString(1, vo.getId());
+			pstm.setString(2, vo.getPwd());
+			pstm.setString(3, vo.getName());
+			pstm.setString(4, vo.getInfo());
+			pstm.executeUpdate();
+			res = true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (pstm != null)
+					pstm.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return res;
+	}
+	/*
+	public ArrayList<MjoinVO> getList(){
+		Connection con= null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		//저장할 데이터VO의 주소를 기억시킬 컬렉션 생성
+		ArrayList<MjoinVO> ar = new ArrayList<MjoinVO>();
+		StringBuffer sql = new StringBuffer();
+		sql.append("select num, writer, imgpath, hit, edate from imgdir order by 1 desc");
+		
+		try {
+			con = ConnUtil.getDs();
+			pstm = con.prepareStatement(sql.toString());
+			rs = pstm.executeQuery();
+			while(rs.next()){
+				//하나의 row를 저장할 VO 객체
+				MjoinVO v = new MjoinVO();
+				v.setNum(rs.getInt("num"));
+				v.setId(rs.getString("id"));
+				//ArrayList에 각각의 데이터를 저장한 VO의 주소를 기억시킨다.
+				ar.add(v);
+			}
+			rs.close();
+			pstm.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return ar;//그 주소를 반환한다.
+	}
+	*/
+}

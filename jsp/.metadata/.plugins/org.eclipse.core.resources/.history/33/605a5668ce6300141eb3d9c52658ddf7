@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    <%-- MjoinVO vo = new MjoinVO() ¿Í °°´Ù. --%>
+<jsp:useBean id="vo" class=vo.MjoinVO"></jsp:useBean>
+<%-- setter : vo.setId(request.getParameter("id");--%>
+<jsp:setProperty property="id" name="vo" param="id"/>
+<jsp:setProperty property="pwd" name="vo" param="pwd"/>
+<jsp:setProperty property="name" name="vo" param="name"/>
+<jsp:setProperty property="info" name="vo" param="info"/>

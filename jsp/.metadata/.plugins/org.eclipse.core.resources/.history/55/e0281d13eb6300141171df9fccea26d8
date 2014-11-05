@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%
+	String id = request.getParameter("id");
+	String pwd = request.getParameter("pwd");
+	int cnt=0;
+	if(id.equals("bigdaddy") && pwd.equals("12")){
+		cnt = 1;
+	}
+	if(cnt==0){
+		//데이터베이스의 회원테이블에서 조회가 성공!
+		//세션에게 사용자의 정보를 심는다.
+		session.setAttribute("MEMBERID", id);
+		session.setAttribute("USERNAME", "야야");
+	}else{
+		response.sendRedirect("error.jsp");
+	}
+	response.sendRedirect("ex1_body.jsp");
+%>

@@ -1,0 +1,20 @@
+package dao;
+
+import org.apache.ibatis.session.SqlSession;
+
+import service.FactoryService;
+import vo.BBsVO;
+
+public class BBsDao {
+	private static BBsDao dao;
+
+	public static synchronized BBsDao getDao() {
+		if(dao == null) dao = new BBsDao();
+		return dao;
+	}
+	//insert 작업을 정의한 메서드
+	public void bbsAdd(BBsVO v){
+		SqlSession ss = FactoryService.getFactory().openSession();
+		ss.insert("bbs.bbs_in",)
+	}
+}

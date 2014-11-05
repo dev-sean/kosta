@@ -1,0 +1,14 @@
+<%@page import="dao.BBsDao"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%
+	request.setCharacterEncoding("euc-kr");
+%>
+<jsp:useBean id="bvo" class="vo.BBsVO"></jsp:useBean>
+<jsp:setProperty property="*" name="bvo" />
+
+<%
+	BBsDao.getDao().bbsAdd(bvo);
+	response.sendRedirect("bbslist.jsp");
+%>
+<jsp:getProperty property="writer" name="bvo" />

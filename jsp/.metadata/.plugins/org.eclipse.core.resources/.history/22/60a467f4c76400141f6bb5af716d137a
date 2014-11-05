@@ -1,0 +1,5 @@
+package servie;
+
+public class FactoryService {
+
+}

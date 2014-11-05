@@ -1,0 +1,25 @@
+package dao;
+
+import org.apache.ibatis.session.SqlSession;
+
+import servie.FactoryService;
+import vo.BbsVO;
+
+public class BbsDao {
+	private static BbsDao dao;
+
+	public synchronized static BbsDao getDao() {
+		if(dao == null){
+			dao = new BbsDao();
+		}
+		return dao;
+	}
+	
+	public void setBbs(BbsVO v){
+		SqlSession ss = FactoryService.getFactory().openSession();
+		ss.insert(v);
+		
+	}
+	
+	
+}

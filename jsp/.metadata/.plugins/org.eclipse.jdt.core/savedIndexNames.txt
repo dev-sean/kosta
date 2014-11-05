@@ -1,0 +1,7 @@
+INDEX VERSION 1.127+C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.jdt.core
+2363901152.index
+1718767329.index
+950348845.index
+3144574817.index
+1376633428.index
+3429455863.index

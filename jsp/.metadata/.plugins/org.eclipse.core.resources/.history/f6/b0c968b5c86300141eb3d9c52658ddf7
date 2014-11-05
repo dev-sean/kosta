@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<footer>
+	<nav>
+		<ul>
+			<li><a href="">메뉴1</a>&nbsp; |</li>
+			<li><a href="">메뉴1</a>&nbsp; |</li>
+			<li><a href="">메뉴1</a>&nbsp; |</li>
+			<li><a href="">메뉴1</a>&nbsp; |</li>
+			<li><a href="">메뉴1</a>&nbsp; |</li>
+			<li><a href="">메뉴1</a>&nbsp; |</li>
+			<li><a href="">메뉴1</a></li>
+		</ul>
+	</nav>
+</footer>
+
+
+</body>
+</html>

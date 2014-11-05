@@ -1,0 +1,12 @@
+package servie;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class FactoryService {
+	private static SqlSessionFactory factory;
+
+	public static SqlSessionFactory getFactory() {
+		return factory;
+	}
+	
+}

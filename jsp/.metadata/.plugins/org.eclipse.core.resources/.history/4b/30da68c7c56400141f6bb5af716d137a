@@ -1,0 +1,6 @@
+package vo;
+
+public class BbsVO {
+	private int num, hit;
+	private sub, writer, pwd, cont, reip, redate;
+}

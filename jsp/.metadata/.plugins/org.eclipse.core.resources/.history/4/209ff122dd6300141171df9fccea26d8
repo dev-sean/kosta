@@ -1,0 +1,21 @@
+package dao;
+
+import java.util.ArrayList;
+
+public class JoinDao {
+	private static JoinDao dao;
+
+	public synchronized static JoinDao getDao() {
+		if(dao == null){
+			dao = new JoinDao();
+		}
+		return dao;
+	}
+	public void addData(){
+		
+	}
+	
+	public ArrayList<MjoinVO> listData(){
+		
+	}
+}

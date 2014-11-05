@@ -1,0 +1,10 @@
+package dao;
+
+public class BBsDao {
+	private static BBsDao dao;
+
+	public static synchronized BBsDao getDao() {
+		if(dao == null) dao = new BBsDao();
+		return dao;
+	}
+}

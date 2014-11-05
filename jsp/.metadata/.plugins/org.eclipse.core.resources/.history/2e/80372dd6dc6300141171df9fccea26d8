@@ -1,0 +1,13 @@
+package dao;
+
+public class JoinDao {
+	private static JoinDao dao;
+
+	public static JoinDao getDao() {
+		if(dao == null){
+			dao = new JoinDao();
+		}
+		return dao;
+	}
+	
+}

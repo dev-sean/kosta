@@ -1,0 +1,24 @@
+package conn;
+
+import java.sql.Connection;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class ConnUtil {
+	private static DataSource ds;
+	static{
+		try {
+			InitialContext ctx = new InitialContext();
+			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/myora");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public static Connection getDs() {
+		return ds.getConnection();
+	}
+}

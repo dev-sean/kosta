@@ -11,6 +11,8 @@ progress {
 	display: none;
 }
 </style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script>
 	var progress = null;
 	// 주석 예) $(document).ready(function(){}); 으로 변경
@@ -22,7 +24,22 @@ progress {
 			fileUpload();
 		};
 	};
-
+	function fileUpload() {
+		var fileIn = $('#fileToUpload')[0];
+		var file = fileIn.files[0];
+		$.ajax({
+			url : "http://localhost:8080/jsp_1103/uploadService.jsp",
+			type : "POST",
+			data : file,
+			success : function() {
+				alert("success");
+			},
+			error : function() {
+				alert("fail");
+			}
+		});
+	}
+	/* 
 	function fileUpload() {
 		var uploadFile = document.querySelector("input");
 		var xhr = new XMLHttpRequest();
@@ -57,12 +74,14 @@ progress {
 		xhr.setRequestHeader("X-File-Name",
 				encodeURIComponent(uploadFile.files[0].name));
 		xhr.send(uploadFile.files[0]);
-	}
+	 */
+
+
 </script>
 </head>
 <body>
 	<h1>XMLHttpRequest Level2를 이용한 파일 업로드</h1>
-	<input type="file">
+	<input type="file" id='fileToUpload'>
 	<button>upload</button>
 	<progress>0%</progress>
 	<div></div>
