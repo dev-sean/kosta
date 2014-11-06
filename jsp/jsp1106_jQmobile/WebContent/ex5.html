@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JQuery Mobile Test2</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+<style>
+#logo {
+	width: 310px;
+	height: 70px;
+	text-indent: -999;
+	background-image: url('img/ko1.PNG');
+	background-repeat: no-repeat;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+}
+;
+</style>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.map"></script>
+<script>
+	$(document).ready(function() {
+		$('#main ul li a').click(function(idx) {
+			$(this).attr("href","#sub1");
+			$('#imgtarget img').attr("src", $(this).children('img').attr("src"));
+			$('h2').text($(this).children('h3').text());
+			$('#cont').text($(this).children('p').text());
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<!-- 첫번째 페이지에서 선택한 내용을 두번째 sub1 페이지에서 출력이 되도록
+		jQuery로 개발하시오. -->
+	<div data-role="page" data-theme="b" id="main">
+		<div data-role="header">
+			<h1>Kosta86기 파견 기자 뉴스</h1>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li><a href=""> <img src="img/f1.gif"
+						class="ui-shadow-icon">
+						<h3>과테말라</h3>
+						<p>과테말라가 아프리카가 아니네?</p>
+				</a></li>
+				<li><a href=""> <img src="img/f2.gif"
+						class="ui-shadow-icon">
+						<h3>그라나다</h3>
+						<p>이것도 유럽이 아니었네?</p>
+				</a></li>
+				<li><a href=""> <img src="img/f3.gif"
+						class="ui-shadow-icon">
+						<h3>니카과라</h3>
+						<p>요긴 어디?</p>
+				</a></li>
+				<li><a href=""> <img src="img/f4.gif"
+						class="ui-shadow-icon">
+						<h3>도미니카 공화국</h3>
+						<p>여기도 아프리카 아녔음?</p>
+				</a></li>
+				<li><a href=""> <img src="img/f5.gif"
+						class="ui-shadow-icon">
+						<h3>도미니카 연방</h3>
+						<p>도미니카 공화국이랑 뭐가 다름?</p>
+				</a></li>
+				<li><a href=""> <img src="img/f6.gif"
+						class="ui-shadow-icon">
+						<h3>멕시코</h3>
+						<p>타코가 최고!!!!</p>
+				</a></li>
+				<li><a href=""> <img src="img/f7.gif"
+						class="ui-shadow-icon">
+						<h3>미국</h3>
+						<p>세계 제일!!! 살고싶다!!!</p>
+				</a></li>
+			</ul>
+		</div>
+		<div data-role="footer">
+			<h1 id="logo"></h1>
+			<h3>jQuery Mobile Footer</h3>
+		</div>
+	</div>
+	<div data-role="page" id="sub1" data-theme="b">
+		<div data-role="header">
+			<h1>Kosta86기 파견 기자 뉴스</h1>
+		</div>
+		<div data-role="content" class="content">
+			<h2></h2>
+			<p id="imgtarget">
+				<img>
+			</p>
+			<p id="cont"></p>
+			<p>
+				<a href="#main" data-role="button" data-transition="flip">돌아가기</a>
+			</p>
+		</div>
+		<div data-role="footer">
+			<h1 id="logo"></h1>
+			<h3>jQuery Mobile Footer</h3>
+		</div>
+	</div>
+</body>
+</html>
