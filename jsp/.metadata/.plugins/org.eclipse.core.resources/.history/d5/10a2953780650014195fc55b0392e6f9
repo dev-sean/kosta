@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+<style>
+#logo {
+	width: 310px;
+	height: 70px;
+	text-indent: -999;
+	background-image: url('img/sin6.PNG');
+	background-repeat: no-repeat;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-bottom: 5px;
+	margin-right: auto;
+}
+</style>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#first ul li a').click(function(idx) {
+			alert("test :" + $(this).children('h3').text());
+		});
+	});
+</script>
+</head>
+<body>
+	<div data-role="page" id="first" data-theme="b">
+		<div data-role="header">
+			<h1 id="logo">kosta86기 파견 기자 뉴스</h1>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li><a href="#second"> <img src="img/sin1.jpg"
+						class="ui-shadow-icon">
+						<h3>한국: 우리 나라</h3>
+						<p>김길동이 처음으로 개발자인 나라 !!</p>
+				</a></li>
+				<li><a href=""> <img src="img/sin2.jpg"
+						class="ui-shadow-icon">
+						<h3>중국</h3>
+						<p>일요일엔 짜빠게티</p>
+				</a></li>
+				<li><a href=""> <img src="img/sin3.jpg"
+						class="ui-shadow-icon">
+						<h3>메롱: 내꺼</h3>
+						<p>그런겁니까 ??</p>
+				</a></li>
+				<li><a href=""> <img src="img/sin7.PNG"
+						class="ui-shadow-icon">
+						<h3>냐하하하하</h3>
+						<p>그렇습니다.</p>
+				</a></li>
+				<li><a href=""> <img src="img/sin5.jpg"
+						class="ui-shadow-icon">
+						<h3>끝</h3>
+						<p>제발!!</p>
+				</a></li>
+			</ul>
+		</div>
+		<div data-role="footer">
+			<h3 id="logo">고유로 하나만 된다며 ?아니야 ?</h3>
+		</div>
+		<!-- 첫번째 페이지에서 선택한 내용을 두번째 sub1페이지에서 출력이 되도록 jQuery로 개발 하시오. -->
+		<div data-role="page" id="second">
+			<div data-role="header">
+				<h1 id="logo">kosta86기 파견 기자 뉴스</h1>
+			</div>
+			<div data-role="content" class="content">
+				<h2></h2>
+				<p id="imgtarget">
+					<img>
+				</p>
+				<p id="cont"></p>
+				<p>
+					<a href="#first" data-role="button">Main</a>
+				</p>
+			</div>
+
+			<div data-role="footer">
+				<h3 id="logo">고유로 하나만 된다며 ?아니야 ?</h3>
+			</div>
+		</div>
+</body>
+</html>

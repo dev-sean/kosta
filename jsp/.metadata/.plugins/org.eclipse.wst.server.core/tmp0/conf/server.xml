@@ -125,9 +125,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp_1105" path="/jsp_1105" reloadable="true" source="org.eclipse.jst.jee.server:jsp_1105">
-	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/myora" password="fighting" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521/pdborcl" username="Bjo"/>
-</Context></Host>
+      <Context docBase="C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\kosta86\jsp\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp_1107" path="/jsp_1107" reloadable="true" source="org.eclipse.jst.jee.server:jsp_1107"/></Host>
     </Engine>
   </Service>
 </Server>

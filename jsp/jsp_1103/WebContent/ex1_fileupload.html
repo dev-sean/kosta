@@ -14,12 +14,11 @@
 <body>
 	<div id="wrap">
 		<!-- enctype="multipart/form-data" 업로드 관련 속성이며, 반드시 post로 전송 
-		일반적인 request로는 더이상 jsp측에서 파라밑터로 처리 될 수 없기 때문에
+		일반적인 request로는 더이상 jsp측에서 파라미터로 처리 될 수 없기 때문에
 		apache io or cos.jar 제공받아서 처리 -->
 		<h1>파일 업로드 예제</h1>
 		<form method="post" action="ex1_upload.jsp" id="f"
 			enctype="multipart/form-data">
-			
 			<p>
 				작성자 : <input type="text" name="writer">
 			</p>

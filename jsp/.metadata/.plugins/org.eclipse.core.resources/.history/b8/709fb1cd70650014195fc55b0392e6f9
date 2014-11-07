@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="cordova.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
+</head>
+<body>
+	<!-- data-role 는 jQuery Mobile과 연동되엉 ㅣㅆ는 라이브러리에서의 속성값이다. -->
+	<div data-role="page">
+		<div data-role="header">
+			<h1>jQuery Mobile Test</h1>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li><a href="">첫번째 메뉴</a></li>
+				<li><a href="">두번째 메뉴</a></li>
+				<li><a href="">세번째 메뉴</a></li>
+				<li><a href="">네번째 메뉴</a></li>
+				<li><a href="">다섯번째 메뉴</a></li>
+			</ul>
+		</div>
+		<div data-role="footer">
+			<h3>jQuery Mobile Footer</h3>
+		</div>
+	</div>
+</body>
+</html>

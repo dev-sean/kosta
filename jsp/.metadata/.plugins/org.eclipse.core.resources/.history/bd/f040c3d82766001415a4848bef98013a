@@ -1,0 +1,13 @@
+package control;
+//Servlet이 직접적으로 접근하는 클래스 ******
+//(쓰레드가 접근한다.)
+
+public class ActionFactory {
+	private static ActionFactory factory;
+	
+	public static synchronized ActionFactory getFactory() {
+		if(factory == null) factory = new ActionFactory();
+		return factory;
+	}
+	//컨트롤러와 모델사이에서 중간 관리 역할을 하는 객체 - 요청, 
+}

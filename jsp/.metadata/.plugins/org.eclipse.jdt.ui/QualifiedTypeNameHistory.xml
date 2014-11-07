@@ -19,4 +19,19 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="vo.BbsVO"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="action.IndexModel"/>
+<fullyQualifiedTypeName name="control.ActionFactory"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="org.apache.catalina.connector.OutputBuffer"/>
+<fullyQualifiedTypeName name="action.Action"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.generic.DADD"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="control.ActionForward"/>
+<fullyQualifiedTypeName name="action.ValueModel"/>
 </qualifiedTypeNameHistroy>

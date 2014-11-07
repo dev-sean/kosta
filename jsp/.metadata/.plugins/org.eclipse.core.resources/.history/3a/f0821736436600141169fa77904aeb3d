@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+<!-- EL:자바 객체를 사용하지 않고 EL을 사용해서 값을 표현 -->
+
+</script>
+</head>
+<body>
+<!-- EL:자바 객체를 사용하지 않고 EL을 사용해서 값을 표현 -->
+${date} 
+</body>
+</html>
