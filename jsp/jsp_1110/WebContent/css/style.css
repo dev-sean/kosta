@@ -1,0 +1,143 @@
+@CHARSET "EUC-KR";
+html, body, div, h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+}
+
+body {
+	width: 960px;
+	margin: 0 auto;
+	font-family: Arial, sans-serif;
+	color: #777;
+}
+
+p {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	line-height: 150%;
+}
+.hd h1{
+	
+}
+header {
+	background: #777;
+	padding: 20px;
+	height: 65px;
+	clear: both;
+}
+
+body header  h1 {
+	font-size: 3.0em;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+body header  h2 {
+	font-size: 0.8em;
+	color: #fff;
+	
+}
+
+body nav {
+	height: 25px;
+	padding: 10px;
+	background: #000;
+	color: #FFFFFF;
+	font-weight: bold;
+	clear: both;
+	-moz-border-radius: 20px 0px;
+}
+
+body nav ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+nav ul li {
+	display: block;
+	float: left;
+	margin-right: 20px;
+}
+
+footer {
+	background: #000;
+	padding: 10px;
+	height: 100px;
+	color: #fff;
+	clear: both;
+}
+
+nav ul li a {
+	color: #fff;
+	background: #000;
+	text-decoration: none;
+	padding: 5px;
+	margin: 0;
+}
+
+nav ul li a:hover {
+	background: #777;
+}
+
+article {
+	width: 700px;
+	padding: 10px;
+	float: left;
+}
+
+article header {
+	border: 1px dashed #777;
+	padding: 10px;
+}
+
+article header h2 {
+	color: #000;
+	font-size: 2em;
+}
+
+time {
+	font-size: 0.7em;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+article section footer {
+	border: 1px dashed #777;
+	padding: 10px;
+}
+
+article>footer {
+	font-style: italic;
+}
+
+figure {
+	margin: 0 auto;
+	padding: 20px;
+	width: 500px;
+	text-align: center;
+	border: 1px dashed #ccc;
+	clear: both;
+}
+
+figure img {
+	padding: 10px;
+	margin: 0 auto;
+}
+
+aside {
+	width: 200px;
+	padding: 20px;
+	float: left;
+	background: #ccc;
+	color: #000;
+	font-size: 0.8em;
+}
+
+aside header h1 {
+	font-size: 1.5em;
+	color: #000;
+}
