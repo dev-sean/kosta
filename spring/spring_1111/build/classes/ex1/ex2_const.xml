@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+	<bean id="svc" class="ex1.Ex2_ServiceImple">
+		<constructor-arg value="1000" type="int"></constructor-arg>
+	</bean>
+	<bean id="svc2" class="ex1.Ex2_ServiceImple">
+		<constructor-arg value="7777" type="int"></constructor-arg>
+		<constructor-arg value="안녕?"></constructor-arg>
+	</bean>
+</beans>

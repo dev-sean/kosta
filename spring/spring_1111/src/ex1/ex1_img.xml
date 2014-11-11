@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<!-- beans안에 스프링컨테이너에서 관리할 DI대상 및 DI 받을 객체들을 bean Element안에 정의한다. 싱글톤 레지스터리에 
+		등록 후 모든 빈을 싱글톤으로 관리 한다.(스트링의 암시적 객체생성) 오브젝트 팩토리와 같은 역할을 스프링 내부적으로 해주는 애가 
+		있는데 그 애가 스프링 컨테이너다.(DI객체가 되는 대상들을 관리해주는 것) -->
+	<bean id="str" class="java.lang.String">
+		<constructor-arg value="나의 첫번째 Spring ^^" />
+	</bean> <!-- 생성자 -->
+	<!-- <bean id="msg" class="ex1.Ex1_MessageApp"> <property name="msg" ref="str"/> 
+		</bean> -->
+	<bean id="format1" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd">
+		</constructor-arg>
+	</bean>
+	<!-- bean이 생성자이다. java.util.Date를 실행을 시키면서 new 객체를 기본으로 만들어준다. 즉, <bean> 
+		</bean>은 new의 개념이다. constructor-arg value="" 는 생성자 안으로 들어오는 파라미터 값을 의미한다. -->
+	<bean id="date1" class="java.util.Date">
+		<constructor-arg value="20"></constructor-arg>
+		<constructor-arg value="4"></constructor-arg>
+		<constructor-arg value="4"></constructor-arg>
+	</bean>
+	<bean id="today" class="ex1.TodayApps">
+		<property name="format" ref="format1" />
+		<property name="date" ref="date1" />
+	</bean>
+</beans>
