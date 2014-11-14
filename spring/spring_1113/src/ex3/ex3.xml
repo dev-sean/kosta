@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<context:annotation-config></context:annotation-config>
+	<bean id="req" class="ex3.Required">
+		<constructor-arg value="컴퓨터" name="name"/>
+		<constructor-arg value="사야지" name="msg"/>
+	</bean>
+	
+<!-- 	<bean id="req" class="ex3.Required"> -->
+<!-- 		<property name="name" value="kim" />  -->
+<!-- 		<property name="msg" value="Good!" /> -->
+<!-- 	</bean> -->
+
+</beans>

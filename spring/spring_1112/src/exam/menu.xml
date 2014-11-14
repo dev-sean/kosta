@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+	
+	<bean id="menu2" class="exam.MyOrder"></bean>
+	<bean id="menuPrint" class="exam.OrderSystem">
+		<property name="menu" ref="menu2" />
+	</bean>
+
+</beans>

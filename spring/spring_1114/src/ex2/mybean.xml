@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<context:annotation-config></context:annotation-config>
+	<bean id="msg" class="java.lang.String">
+		<constructor-arg value="안녕?"></constructor-arg>
+	</bean>
+
+	<bean id="auto" class="ex2.MyBeanImple">
+	</bean>
+
+	<!-- Advice -->
+	<bean id="loggerAdvice" class="ex2.MyBeanAdvice"></bean>
+	
+	<!-- AfterAdvice -->
+	<bean id="loggerAfterAdvice" class="ex2.MyAfterAdvice"></bean>
+
+	<!-- PointCut -->
+	<bean id="loggerPointCut"
+		class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
+		<property name="expression" value="execution(* myGet*(..))"></property>
+	</bean>
+
+	<!-- Advisor -->
+	<bean id="loggerAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="loggerAdvice"></property>
+		<property name="pointcut" ref="loggerPointCut"></property>
+	</bean>
+	
+	<!-- Advisor2 -->
+	<bean id="loggerAdvisor2" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="loggerAfterAdvice"></property>
+		<property name="pointcut" ref="loggerPointCut"></property>
+	</bean>
+
+
+	<!-- ProxyFactoryBean -->
+	<bean id="pfBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="auto"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>loggerAdvisor</value>
+				<value>loggerAdvisor2</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+
+</beans>

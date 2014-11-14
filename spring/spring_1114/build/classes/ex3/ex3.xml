@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<context:annotation-config></context:annotation-config>
+
+	<!-- Advice를 빈으로 등록! -->
+	<bean id="checkTimeAdvice" class="ex3.TimeAdvice"></bean>
+	<bean id="afterReturnAdvice" class="ex3.AfterAdvice"></bean>
+
+	<!-- Aspect 태그를 사용한 aop 설정 -->
+	<aop:config> <!-- ProxyFactoryBean이다. -->
+		<aop:aspect id="time" ref="checkTimeAdvice">
+			<aop:pointcut expression="execution(* ex3.DaoImple.first())"
+				id="firstP" />
+				<!-- Advice의 형태를 지정 -->
+				<aop:around method="checkTime" pointcut-ref="firstP"/>
+		</aop:aspect>
+		<aop:aspect id="after" ref="afterReturnAdvice">
+			<aop:pointcut expression="execution(* ex3.DaoImple.second())"
+				id="secondS" />
+				<!-- Advice의 형태를 지정 -->
+				<aop:after-returning method="afterReturnMethod" pointcut-ref="secondS" 
+				returning="ret"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="dao" class="ex3.DaoImple"></bean>
+</beans>
