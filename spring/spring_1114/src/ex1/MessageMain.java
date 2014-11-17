@@ -5,7 +5,7 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
 
 
-
+//AOP는 관점지향이기 때문에 호출 시점이 없다.
 public class MessageMain {
 	public static void main(String[] args) {
 		//AOP ProxyFactoryBean을 생성
