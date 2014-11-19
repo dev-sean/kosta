@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-성공
+
+${tvo.sub }<br/>
+${tvo.writer }<br/>
+${tvo.content }<br/>
+${tvo.pwd }<br/>
+${tvo.mfile }
+<%-- <img src="${pageContext.request.contextPath}/img/${imgName }"> --%>
+<%-- <img src="<%=application.getContextPath() %>/img/${imgName}"> --%>
+<!-- <a href="form.kosta">입력해보기</a> -->
+
 </body>
 </html>
