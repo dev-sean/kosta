@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+	<context:annotation-config></context:annotation-config>
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/myora" />
+	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="todayController" class="ex1.TodayController"></bean>
+
+	<bean id="d" class="java.util.Date"></bean>
+
+	<bean id="f" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd"></constructor-arg>
+	</bean>
+
+	<bean id="beforeadvice" class="ex2.controller.BeforeAdvice"></bean>
+
+	<bean id="helloController" class="ex2.controller.HelloController"></bean>
+
+	<!-- View의 위치와 확장자를 M&V에서 넘겨받아서 view를 찾는다. -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<!-- 모델을 거치지 않고 바로 view로 이동하기 -->
+	<bean name="/form.kosta"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+		p:viewName="form"></bean>
+	<bean name="/upform.kosta"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+		p:viewName="upform"></bean>
+	<!-- mutipartresolver 추가 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+</beans>
