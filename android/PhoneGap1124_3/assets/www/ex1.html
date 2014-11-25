@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<link rel="stylesheet" href="js/jquery.mobile-1.4.5.min.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<style>
+#logo {
+	width: 130px;
+	height: 43px;
+	text-indent: -999px;
+	background-image: url(img/logo.JPG);
+	background-repeat: no-repeat;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-bottom: 5px;
+	margin-left: auto;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$.getJSON("http://192.168.7.20/spring_1124/jsonp.jsp?serverkey=?", function(d) {
+
+		$.each(d, function(k, v) {
+			var tag = "<a href=\"#photo\"><img src='"+v.pimage+"'><h3>"
+					+ v.pname + "</h3><p>p엘리멘트입니다.</p></a>";
+			$("#content ul").append("<li>" + tag + "</li>");
+			$("#content img").addClass("ui-li-has-thumb"); //모바일의 클래스
+			$(".listview").listview('refresh');//listView를 갱신
+		});
+		$("#getjson").show();
+	});
+});
+</script>
+
+</head>
+<body>
+	<div data-role="page" data-theme="a">
+		<div data-role="header">
+			<h2 id="logo">Kosta jQuery Mobile</h2>
+		</div>
+		<div data-role="content" id="content">
+			<ul data-role="listview" data-inset="true" class="listview"></ul>
+
+
+
+
+		</div>
+		<div data-role="footer">
+			<h2>Footer 입니다.</h2>
+		</div>
+	</div>
+</body>
+</html>

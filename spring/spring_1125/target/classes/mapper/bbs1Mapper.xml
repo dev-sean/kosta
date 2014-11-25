@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbs1">
+	<insert id="ins" parameterType="vo.Bbs1VO">
+		insert into bbs1
+		values(bbs1_seq.nextVal, #{sub}, #{writer}, #{pwd},
+		#{cont}, #{reip},
+		0, sysdate)
+	</insert>
+	<select id="list" resultType="vo.Bbs1VO">
+		select num, sub, writer, hit,
+		to_char(regdate, 'yyyy-mm-dd') regdate from bbs1 order by 1 desc
+	</select>
+	<select id="detail" parameterType="int" resultType="vo.Bbs1VO">
+		select num,
+		sub, writer, cont, reip, hit,
+		to_char(regdate, 'yyyy-mm-dd') regdate
+		from bbs1 where num=#{num}
+	</select>
+	<insert id="commIn" parameterType="vo.Bbs1CommVO">
+		insert into bbs1comm
+		values(bbs1comm_seq.nextVal, #{kcode}, #{cnt}, #{writer}, #{comm},
+		#{reip}, sysdate)
+	</insert>
+	<select id="commList" parameterType="int" resultType="vo.Bbs1CommVO">	
+		select num,kcode,cnt,writer,comm,reip,
+		to_char(regdate,'yyyy-mm-dd') regdate
+		from bbs1comm where kcode=#{kcode} order by 1 desc
+	</select>
+</mapper>
