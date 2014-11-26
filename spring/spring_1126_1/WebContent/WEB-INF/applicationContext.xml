@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	<context:annotation-config />
+	<!-- 디비관련 자료(myBatis) -->
+	<bean class="org.springframework.jndi.JndiObjectFactoryBean" id="dataSource">
+		<property value="java:comp/env/jdbc/myora" name="jndiName" />
+	</bean>
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="factoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:config/mapConfig/sqlMapConfig.xml" />
+	</bean>
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="ss">
+		<constructor-arg ref="factoryBean" />
+	</bean>
+	
+	<!-- 트랜잭션 매니저 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+   
+</beans>

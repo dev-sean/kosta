@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+	<context:component-scan base-package="kosta"></context:component-scan>
+	<security:http auto-config="true">
+		<security:intercept-url pattern="/main.kosta"
+			access="ROLE_USER" />
+		<security:intercept-url pattern="/test*"
+			access="ROLE_USER" />	
+			
+		<security:form-login login-page="/login.kosta"
+			default-target-url="/main.kosta" authentication-failure-url="/loginFail.kosta" />
+		<security:logout logout-success-url="/logout.kosta" />
+	</security:http>
+	<security:authentication-manager>
+		<security:authentication-provider
+			user-service-ref="memberService" />
+	</security:authentication-manager>
+</beans>

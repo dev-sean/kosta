@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kosta">
+	<!--글 insert -->
+	<insert id="addboard" parameterType="b2vo">
+		insert into board2
+		(no,pwd,writer,subject,content,reip,ref,seq,lvl)
+		values(
+		board2_seq.nextVal,#{pwd},#{writer},#{subject},#{content},#{reip},board2_seq.nextVal,1,#{lvl}
+		)
+	</insert>
+
+	<!-- 글 list -->
+	<select id="listboard" resultType="b2vo">
+		select * from board2 order by
+		ref desc, seq asc
+	</select>
+
+	<!-- 글 detail -->
+	<select id="detailboard" resultType="b2vo" parameterType="int">
+		select
+		* from board2 where no=#{no}
+	</select>
+
+	<!-- 답글 -->
+
+	<update id="upboard" parameterType="b2vo">
+		update board2 set seq= seq + 1 where seq >= #{seq} and ref=#{ref}
+	</update>
+	
+	<insert id="reboard" parameterType="b2vo">
+		insert into board2
+		(no,pwd,writer,subject,content,reip,ref,seq,lvl)
+		values(board2_seq.nextVal,#{pwd},#{writer},
+		#{subject},#{content},#{reip},#{ref},#{seq},#{lvl})
+	</insert>
+
+
+
+
+
+
+
+
+
+	<!-- 트랜잭션 하기 위한 답글쓰기(insert) -->
+	<insert id="txreinboard" parameterType="b2vo">
+		insert into board2
+		(no,pwd,writer,subject,content,reip,ref)
+		values(board2_seq.nextVal,#{pwd},#{writer},
+		#{subject},#{content},#{reip},#{ref})
+	</insert>
+
+	<!-- 트랜잭션 하기 위한 답글쓰기(seq(글 갯수) update) -->
+	<update id="txreupboard" parameterType="b2vo">
+		update board2 set seq =
+		seq + 1 where seq > #{seq} and ref = #{ref}
+	</update>
+
+</mapper>
