@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vote">
+	<insert id="voteadd" parameterType="vvo">
+		insert into
+		vote(num,sub,code,vsub1,vsub2
+		<if test="code == 2">
+			) values(vote_seq.nextVal, #{sub},
+			#{code}, #{vsub1},
+			#{vsub2})
+		</if>
+		<if test="code == 3">
+			,vsub3) values(vote_seq.nextVal, #{sub},
+			#{code}, #{vsub1},
+			#{vsub2}, #{vsub3})
+		</if>
+		<if test="code == 4">
+			,vsub3, vsub4) values(vote_seq.nextVal, #{sub},
+			#{code},
+			#{vsub1}, #{vsub2},
+			#{vsub3}, #{vsub4})
+		</if>
+		<if test="code == 5">
+			,vsub3, vsub4, vsub5) values(vote_seq.nextVal, #{sub},
+			#{code}, #{vsub1},
+			#{vsub2}, #{vsub3}, #{vsub4}, #{vsub5})
+		</if>
+	</insert>
+
+	<select id="voteList" resultType="vvo">
+		select num, sub, code, vdate
+		from vote order by 1 desc
+	</select>
+
+	<select id="voteDetail" resultType="vvo" parameterType="int">
+		select
+		num, sub, code, vdate, vsub1, vsub2, vsub3, vsub4, vsub5, vres1,
+		vres2, vres3, vres4, vres5 from vote where num=#{num}
+	</select>
+	
+	<update id="voteUp" parameterType="vvo">
+		update vote set  
+		<if test="votechk==1">
+			vres1= #{vres1} + 1
+		</if>
+		<if test="votechk==2">
+			vres2 = #{vres2} + 1
+		</if>
+		<if test="votechk==3">
+			vres3 = #{vres3} + 1
+		</if>
+		<if test="votechk==4">
+			vres4 = #{vres4} + 1
+		</if>
+		<if test="votechk==5">
+			vres5 = #{vres5} + 1
+		</if>
+		where num=#{num}
+	</update>
+</mapper>
